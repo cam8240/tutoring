@@ -86,7 +86,7 @@ main, header, footer {
   padding: 20px;
   flex: 1 1 250px;
   max-width: 300px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   text-align: center;
 }
 .feature h2 {
@@ -160,7 +160,6 @@ h1 {
 body.home h1 {
   color: white;
 }
-
 
 /* Settings Styling */
 #settings {
@@ -237,67 +236,43 @@ button:hover {
   margin: 5px;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for Quiz Page on Mobile */
 @media (max-width: 850px) {
-  /* Show menu toggle button */
-  .menu-toggle {
-    display: flex;
-  }
-
-  /* Default hidden navigation */
-  .nav-list {
-    position: absolute;
-    top: 60px; /* Position below the header */
-    left: 0;
-    right: 0;
-    background: #28a745;
-    flex-direction: column;
-    align-items: center;
-    display: none; /* Hidden initially */
-    padding: 10px 0; /* Ensure enough spacing */
-  }
-
-  .nav-list li {
-    margin: 10px 0;
-  }
-
-  /* Expand the header dynamically when menu is open */
-  header.expanded {
-    padding-bottom: 300px;
-  }
-
-  /* When menu is active, show it properly */
-  .nav-list.active {
-    display: flex;
-    padding: 20px 0; /* Give more spacing so it doesn't get cut off */
-  }
-
-  /* General container adjustments for smaller screens */
+  /* Stack container elements vertically */
   .container {
+    flex-direction: column;
     padding: 10px;
   }
-
-  /* Adjust hero section for smaller screens */
-  .hero h1 {
-    font-size: 2em;
+  
+  /* Leaderboard and quiz container should take full width */
+  #leaderboard {
+    width: 100%;
+    max-width: 100%;
   }
-
-  .hero p {
-    font-size: 1em;
+  
+  #quizContainer {
+    width: 100%;
   }
-
-  /* Ensure menu items stack vertically */
-  nav ul {
-    flex-direction: column;
+  
+  /* Adjust problem text size and wrapping */
+  #problem {
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    max-width: 100%;
   }
-
-  nav ul li {
-    margin: 10px 0;
+  
+  /* Make inputs and selects fill available width */
+  input, select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-
-  /* Ensure the pricing section is properly stacked */
-  .pricing-container {
-    flex-direction: column;
-    align-items: center;
+  
+  /* Allow horizontal scrolling in game area if necessary */
+  #gameArea {
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }

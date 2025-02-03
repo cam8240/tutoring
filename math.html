@@ -337,11 +337,11 @@
     function checkAnswer() {
       if (!acceptingAnswers) return;
       acceptingAnswers = false;
+
       if (operation === "division") {
-        document.getElementById("quotientAnswer").disabled = true;
-        document.getElementById("remainderAnswer").disabled = true;
         let userQuotient = parseInt(document.getElementById("quotientAnswer").value);
         let userRemainder = parseInt(document.getElementById("remainderAnswer").value);
+        
         if (userQuotient === correctAnswer.quotient && userRemainder === correctAnswer.remainder) {
           document.getElementById("message").textContent = "Correct!";
           progressBar[currentQuestion].style.backgroundColor = "green";
@@ -350,9 +350,13 @@
           document.getElementById("message").textContent = "Try again!";
           progressBar[currentQuestion].style.backgroundColor = "red";
         }
+        
+        // Re-enable input fields for the next question
+        document.getElementById("quotientAnswer").disabled = false;
+        document.getElementById("remainderAnswer").disabled = false;
       } else {
-        document.getElementById("answer").disabled = true;
         let userAnswer = document.getElementById("answer").value.trim();
+        
         if (userAnswer === correctAnswer.toString()) {
           document.getElementById("message").textContent = "Correct!";
           progressBar[currentQuestion].style.backgroundColor = "green";
@@ -361,9 +365,18 @@
           document.getElementById("message").textContent = "Try again!";
           progressBar[currentQuestion].style.backgroundColor = "red";
         }
+        
+        // Re-enable input field for the next question
+        document.getElementById("answer").disabled = false;
       }
+
       currentQuestion++;
-      setTimeout(generateProblem, 1000);
+
+      // Delay before generating next problem
+      setTimeout(() => {
+        generateProblem();
+        document.getElementById("answer").focus(); // Auto-focus on the input box
+      }, 1000);
     }
 
     function handleKeyPress(event) {
