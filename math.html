@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Practice</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* The inline styles below are your original quiz page styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      gap: 20px;
+    }
+    /* Leaderboard styling */
+    #leaderboard {
+      width: 250px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      height: fit-content;
+    }
+    #leaderboard h2 {
+      font-size: 20px;
+      margin-top: 0;
+      text-align: center;
+    }
+    #leaderboard ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #leaderboard li {
+      border-bottom: 1px solid #eee;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+    /* Quiz container styling */
+    #quizContainer {
+      flex-grow: 1;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    /* Settings styling */
+    #settings {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    #settings > div {
+      display: flex;
+      align-items: center;
+    }
+    label {
+      font-size: 16px;
+    }
+    select,
+    input {
+      font-size: 16px;
+      padding: 5px;
+      margin-left: 5px;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    /* Quiz elements styling */
+    #timer {
+      font-size: 18px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .progress-container {
+      width: 100%;
+      background-color: #ddd;
+      margin: 20px 0;
+      height: 25px;
+      border-radius: 5px;
+      display: flex;
+    }
+    .progress-bar {
+      flex-grow: 1;
+      height: 100%;
+      border-right: 2px solid #fff;
+      transition: background-color 0.3s;
+    }
+    #problem {
+      font-size: 28px;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+    #message,
+    #score {
+      font-size: 18px;
+      text-align: center;
+      margin: 10px 0;
+    }
+    /* Game area styling */
+    #gameArea {
+      text-align: center;
+      margin-top: 10px;
+    }
+    #gameArea input {
+      font-size: 16px;
+      padding: 5px;
+      width: 200px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- The shared header is loaded dynamically -->
+  <div id="header"></div>
+  
+  <div class="container">
+    <!-- Leaderboard Section -->
+    <div id="leaderboard">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboardList"></ul>
+    </div>
+    <!-- Quiz Section -->
+    <div id="quizContainer">
+      <h1>Math Practice</h1>
+      <div id="settings">
+        <div>
+          <label for="operation">Choose Operation:</label>
+          <select id="operation" onchange="resetGame()">
+            <option value="multiplication">Multiplication</option>
+            <option value="addition">Addition</option>
+            <option value="subtraction">Subtraction</option>
+            <option value="division">Division (with remainder)</option>
+          </select>
+        </div>
+        <div>
+          <label for="range">Operand Range (0 to 10,000):</label>
+          <input type="number" id="range" value="10" min="0" max="10000" onchange="validateRange(this, 0, 10000); resetGame()" />
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" id="includeNegatives" onchange="resetGame()" />
+            Include negatives
+          </label>
+        </div>
+        <div>
+          <label for="totalQuestions">Total Questions (1-100):</label>
+          <input type="number" id="totalQuestions" value="10" min="1" max="100" onchange="validateRange(this, 1, 100); resetGame()" />
+        </div>
+      </div>
+      <!-- Start Button -->
+      <div style="text-align: center;">
+        <button id="startButton" onclick="startQuiz()">Start</button>
+      </div>
+      <!-- Timer Display -->
+      <div id="timer" style="display: none;">Time: 0 seconds</div>
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progress-bar"></div>
+      <!-- Problem Display -->
+      <div id="problem"></div>
+      <!-- Game Area (Answer Input and Submit Button) -->
+      <div id="gameArea" style="display: none;">
+        <!-- Container for non-division answers -->
+        <div id="singleAnswerContainer">
+          <input type="text" id="answer" placeholder="Enter your answer" onkeypress="handleKeyPress(event)" />
+        </div>
+        <!-- Container for division answers -->
+        <div id="divisionAnswerContainer" style="display: none;">
+          <input type="number" id="quotientAnswer" placeholder="Quotient" onkeypress="handleKeyPress(event)" />
+          <input type="number" id="remainderAnswer" placeholder="Remainder" onkeypress="handleKeyPress(event)" />
+        </div>
+        <button id="submitButton" onclick="checkAnswer()">Submit</button>
+      </div>
+      <p id="message"></p>
+      <p id="score"></p>
+      <!-- Reset Button -->
+      <div style="text-align: center;">
+        <button id="resetButton" style="display: none;" onclick="resetGame()">Reset</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- The shared footer is loaded dynamically -->
+  <div id="footer"></div>
+  
+  <!-- Load the external script that handles header and footer loading -->
+  <script defer src="script.js"></script>
+  
+  <!-- Quiz JavaScript -->
+  <script>
+    let num1, num2, correctAnswer, operation;
+    let currentQuestion = 0;
+    let correctCount = 0;
+    let progressBar;
+    let timerInterval;
+    let elapsedTime = 0;
+    let leaderboard = [];
+    let acceptingAnswers = true; // flag to prevent multiple submissions
+
+    function validateRange(input, min, max) {
+      if (input.value < min) input.value = min;
+      if (input.value > max) input.value = max;
+    }
+
+    function resetGame() {
+      clearInterval(timerInterval);
+      elapsedTime = 0;
+      document.getElementById("timer").textContent = "Time: 0 seconds";
+      document.getElementById("timer").style.display = "none";
+      currentQuestion = 0;
+      correctCount = 0;
+      document.getElementById("score").textContent = "";
+      document.getElementById("message").textContent = "";
+      document.getElementById("startButton").style.display = "inline-block";
+      document.getElementById("gameArea").style.display = "none";
+      document.getElementById("resetButton").style.display = "none";
+      setupProgressBar();
+      document.getElementById("problem").textContent = "";
+      document.getElementById("answer").disabled = false;
+      document.getElementById("submitButton").disabled = false;
+      acceptingAnswers = true;
+    }
+
+    function setupProgressBar() {
+      let container = document.getElementById("progress-bar");
+      container.innerHTML = "";
+      let totalQuestions = parseInt(document.getElementById("totalQuestions").value) || 10;
+      for (let i = 0; i < totalQuestions; i++) {
+        let div = document.createElement("div");
+        div.className = "progress-bar";
+        div.style.backgroundColor = "lightgray";
+        container.appendChild(div);
+      }
+      progressBar = document.getElementsByClassName("progress-bar");
+    }
+
+    function startQuiz() {
+      document.getElementById("startButton").style.display = "none";
+      document.getElementById("gameArea").style.display = "block";
+      document.getElementById("timer").style.display = "block";
+      elapsedTime = 0;
+      timerInterval = setInterval(() => {
+        elapsedTime++;
+        document.getElementById("timer").textContent = `Time: ${elapsedTime} seconds`;
+      }, 1000);
+      generateProblem();
+    }
+
+    function generateProblem() {
+      let totalQuestions = parseInt(document.getElementById("totalQuestions").value) || 10;
+      if (currentQuestion >= totalQuestions) {
+        clearInterval(timerInterval);
+        let scorePercent = Math.round((correctCount / totalQuestions) * 100);
+        document.getElementById("score").textContent = `Your Score: ${scorePercent}%`;
+        document.getElementById("gameArea").style.display = "none";
+        document.getElementById("resetButton").style.display = "inline-block";
+        addLeaderboardEntry(scorePercent, totalQuestions, document.getElementById("operation").value, elapsedTime);
+        updateLeaderboard();
+        return;
+      }
+
+      let range = parseInt(document.getElementById("range").value) || 10;
+      let includeNegatives = document.getElementById("includeNegatives").checked;
+      if (includeNegatives) {
+        num1 = Math.floor(Math.random() * (range * 2 + 1)) - range;
+        num2 = Math.floor(Math.random() * (range * 2 + 1)) - range;
+      } else {
+        num1 = Math.floor(Math.random() * (range + 1));
+        num2 = Math.floor(Math.random() * (range + 1));
+      }
+
+      operation = document.getElementById("operation").value;
+      if (operation === "division") {
+        while (num2 === 0) {
+          if (includeNegatives) {
+            num2 = Math.floor(Math.random() * (range * 2 + 1)) - range;
+          } else {
+            num2 = Math.floor(Math.random() * (range + 1));
+          }
+        }
+        let quotient = Math.floor(num1 / num2);
+        let remainder = num1 % num2;
+        correctAnswer = { quotient: quotient, remainder: remainder };
+        document.getElementById("problem").textContent = `What is ${num1} ÷ ${num2}?`;
+        document.getElementById("singleAnswerContainer").style.display = "none";
+        document.getElementById("divisionAnswerContainer").style.display = "block";
+        document.getElementById("quotientAnswer").value = "";
+        document.getElementById("remainderAnswer").value = "";
+      } else {
+        switch (operation) {
+          case "multiplication":
+            correctAnswer = num1 * num2;
+            document.getElementById("problem").textContent = `What is ${num1} × ${num2}?`;
+            break;
+          case "addition":
+            correctAnswer = num1 + num2;
+            document.getElementById("problem").textContent = `What is ${num1} + ${num2}?`;
+            break;
+          case "subtraction":
+            correctAnswer = num1 - num2;
+            document.getElementById("problem").textContent = `What is ${num1} - ${num2}?`;
+            break;
+        }
+        document.getElementById("singleAnswerContainer").style.display = "block";
+        document.getElementById("divisionAnswerContainer").style.display = "none";
+        document.getElementById("answer").value = "";
+      }
+      document.getElementById("message").textContent = "";
+      acceptingAnswers = true;
+    }
+
+    function checkAnswer() {
+      if (!acceptingAnswers) return;
+      acceptingAnswers = false;
+      if (operation === "division") {
+        document.getElementById("quotientAnswer").disabled = true;
+        document.getElementById("remainderAnswer").disabled = true;
+        let userQuotient = parseInt(document.getElementById("quotientAnswer").value);
+        let userRemainder = parseInt(document.getElementById("remainderAnswer").value);
+        if (userQuotient === correctAnswer.quotient && userRemainder === correctAnswer.remainder) {
+          document.getElementById("message").textContent = "Correct!";
+          progressBar[currentQuestion].style.backgroundColor = "green";
+          correctCount++;
+        } else {
+          document.getElementById("message").textContent = "Try again!";
+          progressBar[currentQuestion].style.backgroundColor = "red";
+        }
+      } else {
+        document.getElementById("answer").disabled = true;
+        let userAnswer = document.getElementById("answer").value.trim();
+        if (userAnswer === correctAnswer.toString()) {
+          document.getElementById("message").textContent = "Correct!";
+          progressBar[currentQuestion].style.backgroundColor = "green";
+          correctCount++;
+        } else {
+          document.getElementById("message").textContent = "Try again!";
+          progressBar[currentQuestion].style.backgroundColor = "red";
+        }
+      }
+      currentQuestion++;
+      setTimeout(generateProblem, 1000);
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        checkAnswer();
+      }
+    }
+
+    function addLeaderboardEntry(score, totalQuestions, operation, time) {
+      leaderboard.push({
+        score: score,
+        total: totalQuestions,
+        operation: operation,
+        time: time,
+      });
+    }
+
+    function updateLeaderboard() {
+      let leaderboardList = document.getElementById("leaderboardList");
+      leaderboardList.innerHTML = "";
+      leaderboard.forEach((entry, index) => {
+        let li = document.createElement("li");
+        li.textContent = `Run ${index + 1}: ${entry.score}% - ${entry.total} Qs - ${entry.operation} - ${entry.time} sec`;
+        leaderboardList.appendChild(li);
+      });
+    }
+
+    resetGame();
+  </script>
+</body>
+</html>

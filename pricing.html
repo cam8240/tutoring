@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Tutoring - Math Practice</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Additional styling for the Pricing Section */
+    .pricing {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .pricing h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .pricing-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .pricing-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 250px;
+      max-width: 300px;
+    }
+    .pricing-box h3 {
+      font-size: 1.5em;
+      margin-top: 0;
+      color: #28a745;
+    }
+    .pricing-box p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+    .pricing-box .price {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #333;
+    }
+    @media (max-width: 600px) {
+      .pricing-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Shared header loaded dynamically -->
+  <div id="header"></div>
+  <script defer src="script.js"></script>
+  
+  <main class="container">
+    <h1>Private Tutoring</h1>
+    <p>
+      At Math Practice, we understand that everyone learns differently. Our private tutoring sessions are designed to offer personalized, one-on-one support to help you overcome your math challenges.
+    </p>
+    <p>
+      Whether you need help with basic arithmetic, algebra, calculus, or preparing for standardized tests, our experienced tutors tailor their approach to meet your unique learning needs. Our sessions are flexible, convenient, and focused on your success.
+    </p>
+    <p>
+      Contact us today to learn more about our private tutoring services and to schedule your session. Let us help you achieve your academic goals and build a stronger foundation in mathematics.
+    </p>
+    
+    <!-- Pricing Section -->
+    <section class="pricing">
+      <h2>Our Pricing Options</h2>
+      <div class="pricing-container">
+        <div class="pricing-box">
+          <h3>Private Tutoring</h3>
+          <p>One-on-one personalized sessions.</p>
+          <p class="price">$60 / hour</p>
+        </div>
+        <div class="pricing-box">
+          <h3>Group Sessions</h3>
+          <p>Small group classes for collaborative learning.</p>
+          <p class="price">$35 / person / hour</p>
+        </div>
+        <div class="pricing-box">
+          <h3>College Coaching</h3>
+          <p>Comprehensive college prep and academic coaching.</p>
+          <p class="price">$80 / hour</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Shared footer loaded dynamically -->
+  <div id="footer"></div>
+</body>
+</html>
