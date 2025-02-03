@@ -1,1 +1,55 @@
-main
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #problem {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #message {
+            font-size: 18px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multiplication Practice</h1>
+    <div id="problem"></div>
+    <input type="number" id="answer" placeholder="Enter your answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="message"></p>
+
+    <script>
+        let num1, num2, correctAnswer;
+
+        function generateProblem() {
+            num1 = Math.floor(Math.random() * 10) + 1;
+            num2 = Math.floor(Math.random() * 10) + 1;
+            correctAnswer = num1 * num2;
+            document.getElementById("problem").textContent = `What is ${num1} × ${num2}?`;
+            document.getElementById("answer").value = "";
+            document.getElementById("message").textContent = "";
+        }
+
+        function checkAnswer() {
+            let userAnswer = parseInt(document.getElementById("answer").value);
+            if (userAnswer === correctAnswer) {
+                document.getElementById("message").textContent = "Correct!";
+                setTimeout(generateProblem, 1000);
+            } else {
+                document.getElementById("message").textContent = "Try again!";
+            }
+        }
+
+        generateProblem();
+    </script>
+</body>
+</html>
