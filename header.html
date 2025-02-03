@@ -1,57 +1,161 @@
 <!-- header.html -->
 <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="math.html">Math Quiz</a></li>
-        <li><a href="pricing.html">Private Coaching</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
-  <style>
-    header {
-      background: #28a745;
-      padding: 15px 0;
-      text-align: center;
-      position: fixed; /* Fixed header */
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-    }
-    nav ul li {
-      display: inline;
-      margin: 0 20px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      padding: 10px 15px;
-      transition: background 0.3s ease-in-out;
-      border-radius: 5px;
-    }
-    nav ul li a:hover {
-      background: #218838;
-    }
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
-    }
-  </style>
-  
+  <nav>
+    <!-- Mobile menu toggle button -->
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <!-- Navigation List -->
+    <ul class="nav-list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="math.html" class="nav-link">Math Quiz</a></li>
+      <li><a href="pricing.html" class="nav-link">Private Coaching</a></li>
+      <li><a href="resources.html" class="nav-link">Resources</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+</header>
+<style>
+  /* Fixed header styling */
+  header {
+    background: #28a745;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  /* Navigation container */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  /* Navigation list styling */
+  .nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center the menu items */
+    align-items: center; /* Align vertically */
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure it takes full width */
+  }
+  .nav-list li {
+    margin: 0 20px;
+  }
+  .nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  .nav-list li a:hover {
+    background: #218838;
+  }
+  .nav-list li a.active {
+    background: #218838; /* Same color as hover */
+    font-weight: bold;
+  }
+  /* Mobile Menu Toggle Button */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+  /* Responsive adjustments for screens 600px or less */
+  @media (max-width: 850px) {
+  /* Show menu toggle button */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle .bar {
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  /* Default hidden navigation */
+  .nav-list {
+    position: absolute;
+    top: 60px; /* Ensures it starts below the header */
+    left: 0;
+    right: 0;
+    background: #28a745;
+    flex-direction: column;
+    align-items: center;
+    display: none; /* Hidden initially */
+    padding: 0; /* No unnecessary spacing */
+    transition: max-height 0.3s ease-in-out;
+    max-height: 0; /* Prevents cut-off issues */
+    overflow: hidden; /* Prevents content from overflowing */
+  }
+
+  .nav-list li {
+    margin: 15px 0;
+  }
+
+  /* Expand header dynamically when menu is open */
+  header.expanded {
+    padding-bottom: 300px;
+  }
+
+  /* When menu is active, show it properly */
+  .nav-list.active {
+    display: flex;
+    max-height: 300px; /* Adjust height dynamically */
+    padding: 20px 0;
+  }
+
+  /* Adjust general container for smaller screens */
+  .container {
+    padding: 10px;
+  }
+
+  /* Adjust hero section for smaller screens */
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  /* Ensure menu items stack vertically */
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  /* Ensure pricing section is properly stacked */
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
