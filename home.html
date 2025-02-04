@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Elevate Learning</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .services {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .services h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .service-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 250px;
+      max-width: 300px;
+    }
+    .service-box h3 {
+      font-size: 1.5em;
+      margin-top: 0;
+      color: #28a745;
+    }
+    .service-box p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body class="home">
+  <!-- Header will be loaded here -->
+  <div id="header"></div>
+  
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Welcome to Elevate Learning</h1>
+      <p>Sharpen your math skills with 1:1 tutoring, test prep, college coaching, interactive challenges, and more!</p>
+      <a href="learning.html">Get Started</a>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services">
+      <h2>Our Services</h2>
+      <div class="services-container">
+        <div class="service-box">
+          <h3>1:1 Tutoring</h3>
+          <p>Personalized, one-on-one tutoring sessions tailored to your unique learning needs.</p>
+        </div>
+        <div class="service-box">
+          <h3>Test Prep</h3>
+          <p>Comprehensive preparation for standardized tests, including SAT, ACT, and more.</p>
+        </div>
+        <div class="service-box">
+          <h3>College Coaching</h3>
+          <p>Guidance on college admissions, application strategies, and essay writing support.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <!-- Footer will be loaded here -->
+  <div id="footer"></div>
+  
+  <script defer src="script.js"></script>
+</body>
+</html>
