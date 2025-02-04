@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources - Math Practice</title>
   <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <script defer src="resource-access.js"></script>
   <style>
     /* Additional styling for the Resources page */
     .resources {
@@ -17,6 +19,7 @@
       padding: 20px;
       margin: 10px 0;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;  /* Center all text within the resource item */
     }
     .resource-item h3 {
       margin-top: 0;
@@ -25,39 +28,91 @@
     .resource-item p {
       margin: 10px 0;
     }
-    .resource-item a {
-      color: #28a745;
-      text-decoration: none;
-      font-weight: bold;
+    .resource-item input {
+      padding: 5px;
+      width: 150px;
+      margin-right: 5px;
+      text-align: center;
     }
-    .resource-item a:hover {
-      text-decoration: underline;
+    .resource-item button {
+      padding: 5px 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .resource-item button:hover {
+      background: #218838;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;  /* Hidden by default */
+    }
+    .download-link {
+      display: none;  /* Hidden until correct code is entered */
+      margin-top: 10px;
+      font-weight: bold;
+      background: #28a745; /* Green background */
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .download-link:hover {
+      background: #218838;
     }
   </style>
 </head>
 <body>
   <!-- Shared header loaded dynamically -->
   <div id="header"></div>
-  <script defer src="script.js"></script>
   
   <main class="container">
     <h1>Resources</h1>
     <div class="resources">
+      <!-- Study Guide -->
       <div class="resource-item">
-        <h3>Downloadable Study Guide</h3>
+        <h3>Downloadable Study Guide - Addition ($5)</h3>
         <p>A comprehensive study guide covering key math concepts.</p>
-        <a href="#">Download PDF</a>
+        <input type="text" id="code1" placeholder="Enter Code">
+        <button onclick="verifyCode('code1', 'link1')">Unlock</button>
+        <p class="error" id="error1">Incorrect Code. Try Again.</p>
+        <a id="link1" class="download-link" href="#" download>Download PDF</a>
       </div>
+      
+      <!-- Video Tutorials -->
       <div class="resource-item">
-        <h3>Video Tutorials</h3>
+        <h3>Video Tutorial - Addition (FREE)</h3>
         <p>Watch our video tutorials on various math topics.</p>
-        <a href="#">View Videos</a>
+        <input type="text" id="code2" placeholder="Enter Code">
+        <button onclick="verifyCode('code2', 'link2')">Unlock</button>
+        <p class="error" id="error2">Incorrect Code. Try Again.</p>
+        <a id="link2" class="download-link" href="#" target="_blank">Watch Videos</a>
       </div>
-      <!-- Add more resource items as needed -->
+      
+      <!-- Practice Worksheet -->
+      <div class="resource-item">
+        <h3>Practice Worksheet - Addition ($5)</h3>
+        <p>Download additional exercises to sharpen your skills.</p>
+        <input type="text" id="code3" placeholder="Enter Code">
+        <button onclick="verifyCode('code3', 'link3')">Unlock</button>
+        <p class="error" id="error3">Incorrect Code. Try Again.</p>
+        <a id="link3" class="download-link" href="#" download>Download Worksheet</a>
+      </div>
     </div>
+
+    <div class="resource-item">
+      <h3>Need Access Codes?</h3>
+      <p>To purchase access codes, please email:</p>
+      <p><a href="mailto:cam8240@gmail.com" style="color: #28a745; font-weight: bold;">cam8240@gmail.com</a></p>
+    </div>    
   </main>
   
   <!-- Shared footer loaded dynamically -->
   <div id="footer"></div>
+  
 </body>
 </html>
