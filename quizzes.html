@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizzes - Elevate Learning</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <style>
+    /* Styling for the Quizzes Section */
+    .quizzes {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .quizzes h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .quizzes-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .quiz-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center; /* Centers content inside the box */
+    }
+    .quiz-box h3 {
+      font-size: 1.5em;
+      margin-top: 0;
+      color: #28a745;
+    }
+    .quiz-box p {
+      font-size: 1em;
+      margin: 10px 0;
+      color: #666;
+    }
+    .quiz-box a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease-in-out;
+    }
+    .quiz-box a:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <!-- Shared header loaded dynamically -->
+  <div id="header"></div>
+  <script defer src="script.js"></script>
+
+  <main class="container">
+    <h1> Quizzes </h1>
+
+    <!-- Quizzes Section -->
+    <section class="quizzes">
+      <div class="quizzes-container">
+        <div class="quiz-box">
+          <h3>Math Quiz</h3>
+          <p>Challenge your math skills with basic arithmetic problems.</p>
+          <a href="math.html">Start Math Quiz</a>
+        </div>
+        <!-- <div class="quiz-box">
+          <h3>Science Quiz</h3>
+          <p>Test your knowledge of scientific principles, from physics to biology.</p>
+          <a href="science.html">Start Science Quiz</a>
+        </div>
+        <div class="quiz-box">
+          <h3>History Quiz</h3>
+          <p>See how well you know historical events, famous figures, and key moments.</p>
+          <a href="history.html">Start History Quiz</a>
+        </div>
+        <div class="quiz-box">
+          <h3>Geography Quiz</h3>
+          <p>Explore the world through geography questions covering continents, capitals, and landmarks.</p>
+          <a href="geography.html">Start Geography Quiz</a>
+        </div>
+        <div class="quiz-box">
+          <h3>Vocabulary Quiz</h3>
+          <p>Enhance your language skills with a fun and challenging vocabulary test.</p>
+          <a href="vocabulary.html">Start Vocabulary Quiz</a>
+        </div> -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared footer loaded dynamically -->
+  <div id="footer"></div>
+</body>
+</html>
