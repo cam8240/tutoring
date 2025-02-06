@@ -3,137 +3,235 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elevate Learning - Math Quiz</title>
+  <title>Elevate Learning - Basic Math Quiz</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     /* The inline styles below are your original quiz page styles */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Leaderboard Styling */
+#leaderboard {
+    width: 280px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#leaderboard h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+
+#leaderboard ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#leaderboard li {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin: 5px 0;
+    transition: background 0.3s;
+}
+
+/* Quiz Section */
+#quizContainer {
+    flex-grow: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #000;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Settings section */
+#settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#settings > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+select, input {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 90%;
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Timer */
+#timer {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    margin: 20px 0;
+    height: 25px;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 100%;
+    border-right: 2px solid #fff;
+    transition: background-color 0.3s;
+}
+
+/* Leaderboard Entry Styling */
+.leaderboard-entry {
+    display: flex;
+    flex-direction: column; /* Two-line format */
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Uniform background */
+    margin: 5px 0;
+    font-size: 14px; /* Consistent text size */
+    font-weight: normal; /* Remove extra boldness */
+    transition: background 0.3s;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Row styling */
+.leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+}
+
+/* Consistent Text Styling */
+.leaderboard-entry span {
+    font-size: 14px; /* Uniform font size */
+    color: #333; /* Same color for all text */
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+}
+
+/* Problem Display */
+#problem {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Message & Score */
+#message,
+#score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+}
+
+/* Game Area */
+#gameArea {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#gameArea input {
+    font-size: 18px;
+    padding: 8px;
+    width: 220px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
     .container {
-      display: flex;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      gap: 20px;
+        flex-direction: column;
+        align-items: center;
     }
-    /* Leaderboard styling */
+
     #leaderboard {
-      width: 250px;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 15px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      height: fit-content;
+        width: 100%;
     }
-    #leaderboard h2 {
-      font-size: 20px;
-      margin-top: 0;
-      text-align: center;
-    }
-    #leaderboard ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    #leaderboard li {
-      border-bottom: 1px solid #eee;
-      padding: 8px 0;
-      font-size: 14px;
-    }
-    /* Quiz container styling */
-    #quizContainer {
-      flex-grow: 1;
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 20px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-    /* Settings styling */
+
     #settings {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
-    #settings > div {
-      display: flex;
-      align-items: center;
+
+    #quizContainer {
+        width: 100%;
     }
-    label {
-      font-size: 16px;
-    }
-    select,
-    input {
-      font-size: 16px;
-      padding: 5px;
-      margin-left: 5px;
-    }
-    button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 5px;
-      background-color: #28a745;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-    /* Quiz elements styling */
-    #timer {
-      font-size: 18px;
-      margin: 10px 0;
-      text-align: center;
-    }
-    .progress-container {
-      width: 100%;
-      background-color: #ddd;
-      margin: 20px 0;
-      height: 25px;
-      border-radius: 5px;
-      display: flex;
-    }
-    .progress-bar {
-      flex-grow: 1;
-      height: 100%;
-      border-right: 2px solid #fff;
-      transition: background-color 0.3s;
-    }
-    #problem {
-      font-size: 28px;
-      margin: 20px 0;
-      text-align: center;
-      font-weight: bold;
-    }
-    #message,
-    #score {
-      font-size: 18px;
-      text-align: center;
-      margin: 10px 0;
-    }
-    /* Game area styling */
-    #gameArea {
-      text-align: center;
-      margin-top: 10px;
-    }
-    #gameArea input {
-      font-size: 16px;
-      padding: 5px;
-      width: 200px;
-      margin: 5px;
-    }
+}
   </style>
 </head>
 
@@ -154,12 +252,15 @@
   <div class="container">
     <!-- Leaderboard Section -->
     <div id="leaderboard">
-      <h2>Leaderboard</h2>
+      <h2>Scoreboard</h2>
       <ul id="leaderboardList"></ul>
     </div>
+
     <!-- Quiz Section -->
     <div id="quizContainer">
-      <h1>Math Quiz</h1>
+      <h1>Basic Math Quiz</h1>
+
+      <!-- Quiz Settings -->
       <div id="settings">
         <div>
           <label for="operation">Operation:</label>
@@ -170,55 +271,65 @@
             <option value="division">Division (Remainder)</option>
           </select>
         </div>
+
         <div>
           <label for="range">Range (1-10,000):</label>
           <input type="number" id="range" value="10" min="1" max="10000" onchange="validateRange(this, 1, 10000); resetGame()" />
         </div>
+
         <div>
-          <label>
+          <label for="includeNegatives">
             <input type="checkbox" id="includeNegatives" onchange="resetGame()" />
             Include Negatives
           </label>
         </div>
+
         <div>
           <label for="totalQuestions">Questions (1-100):</label>
           <input type="number" id="totalQuestions" value="10" min="1" max="100" onchange="validateRange(this, 1, 100); resetGame()" />
         </div>
       </div>
+
       <!-- Start Button -->
-      <div style="text-align: center;">
+      <div class="button-container">
         <button id="startButton" onclick="startQuiz()">Start</button>
       </div>
+
       <!-- Timer Display -->
       <div id="timer" style="display: none;">Time: 0 seconds</div>
+
       <!-- Progress Bar -->
       <div class="progress-container" id="progress-bar"></div>
+
       <!-- Problem Display -->
       <div id="problem"></div>
+
       <!-- Game Area (Answer Input and Submit Button) -->
       <div id="gameArea" style="display: none;">
         <!-- Container for non-division answers -->
         <div id="singleAnswerContainer">
           <input type="text" id="answer" placeholder="Enter your answer" onkeypress="handleKeyPress(event)" />
         </div>
+        
         <!-- Container for division answers -->
         <div id="divisionAnswerContainer" style="display: none;">
           <input type="number" id="quotientAnswer" placeholder="Quotient" onkeypress="handleKeyPress(event)" />
           <input type="number" id="remainderAnswer" placeholder="Remainder" onkeypress="handleKeyPress(event)" />
         </div>
+        
         <button id="submitButton" onclick="checkAnswer()">Submit</button>
       </div>
+
       <p id="message"></p>
       <p id="score"></p>
+
       <!-- Reset Button -->
-      <div style="text-align: center;">
+      <div class="button-container">
         <button id="resetButton" style="display: none;" onclick="resetGame()">Reset</button>
       </div>
     </div>
   </div>
-  
-  <!-- The shared footer is loaded dynamically -->
-  <div id="footer"></div>
+</body>
   
   <!-- Load the external script that handles header and footer loading -->
   <script defer src="script.js"></script>
@@ -397,7 +508,7 @@
       setTimeout(() => {
         generateProblem();
         document.getElementById("answer").focus(); // Auto-focus on the input box
-      }, 1000);
+      }, 0);
     }
 
     function handleKeyPress(event) {
@@ -417,16 +528,33 @@
     }
 
     function updateLeaderboard() {
-      let leaderboardList = document.getElementById("leaderboardList");
-      leaderboardList.innerHTML = "";
-      leaderboard.forEach((entry, index) => {
-        let li = document.createElement("li");
-        li.textContent = `Attempt ${index + 1}: ${entry.score}% | ${entry.total} Questions | ${entry.operation} | ${entry.time} Seconds`;
-        leaderboardList.appendChild(li);
-      });
+        let leaderboardList = document.getElementById("leaderboardList");
+        leaderboardList.innerHTML = ""; // Clear existing entries
+
+        leaderboard.forEach((entry, index) => {
+            let li = document.createElement("li");
+            li.className = "leaderboard-entry"; // Add a class for styling
+
+            // Two-line format with uniform styling
+            li.innerHTML = `
+                <div class="leaderboard-row">
+                    <span class="attempt">Attempt ${index + 1}: ${entry.operation}</span>
+                    <span class="score">${entry.score}%</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span class="details">${entry.total} questions</span>
+                    <span class="time">${entry.time} sec</span>
+                </div>
+            `;
+
+            leaderboardList.appendChild(li);
+        });
     }
 
     resetGame();
   </script>
+
+    <!-- The shared footer is loaded dynamically -->
+    <div id="footer"></div>
 </body>
 </html>

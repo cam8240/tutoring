@@ -19,6 +19,18 @@ body {
   color: #333;
   /* Reserve space for fixed header on larger screens */
   padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  font-family: Arial, sans-serif;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
 }
 
 /* Ensure main elements do not exceed viewport width */
@@ -26,6 +38,10 @@ main, header, footer {
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+}
+
+main {
+  flex: 1;
 }
 
 /* Container */
