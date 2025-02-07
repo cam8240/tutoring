@@ -17,10 +17,12 @@
       margin-bottom: 20px;
     }
     .quizzes-container {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
     }
     .quiz-box {
       background: #fff;
@@ -55,6 +57,13 @@
     .quiz-box a:hover {
       background: #218838;
     }
+
+    @media (max-width: 600px) {
+      .quizzes-container {
+        grid-template-columns: repeat(auto-fit, 300px);
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -71,28 +80,33 @@
         <div class="quiz-box">
           <h3>Basic Math Quiz</h3>
           <p>Challenge your math skills with basic arithmetic problems.</p>
-          <a href="math-quiz.html">Start Basic Math Quiz</a>
+          <a href="math-quiz-basic.html">Start Basic Math Quiz</a>
         </div>
-        <!-- <div class="quiz-box">
+        <div class="quiz-box">
+          <h3>Advanced Math Quiz</h3>
+          <p>Test your knowledge of various scientific principles.</p>
+          <a href="math-quiz-adv.html">Start Advanced Math Quiz</a>
+        </div>
+        <div class="quiz-box">
+          <h3>Engineering Quiz</h3>
+          <p>Explore the world through geography questions.</p>
+          <a href="engineering-quiz.html">Start Engineering Quiz</a>
+        </div>
+        <div class="quiz-box">
           <h3>Science Quiz</h3>
-          <p>Test your knowledge of scientific principles, from physics to biology.</p>
-          <a href="science.html">Start Science Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>History Quiz</h3>
-          <p>See how well you know historical events, famous figures, and key moments.</p>
-          <a href="history.html">Start History Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>Geography Quiz</h3>
-          <p>Explore the world through geography questions covering continents, capitals, and landmarks.</p>
-          <a href="geography.html">Start Geography Quiz</a>
+          <p>Test your knowledge of various scientific principles.</p>
+          <a href="science-quiz.html">Start Science Quiz</a>
         </div>
         <div class="quiz-box">
           <h3>Vocabulary Quiz</h3>
-          <p>Enhance your language skills with a fun and challenging vocabulary test.</p>
-          <a href="vocabulary.html">Start Vocabulary Quiz</a>
-        </div> -->
+          <p>Enhance your language skills with a fun vocabulary test.</p>
+          <a href="vocabulary-quiz.html">Start Vocabulary Quiz</a>
+        </div>
+        <div class="quiz-box">
+          <h3>History Quiz</h3>
+          <p>See how well you know historical events and famous figures.</p>
+          <a href="history-quiz.html">Start History Quiz</a>
+        </div>
       </div>
     </section>
   </main>

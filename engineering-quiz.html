@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevate Learning - Engineering Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* Container layout */
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    /* Leaderboard Styling */
+    #leaderboard {
+      width: 280px;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #leaderboard h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #000;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+    }
+
+    #leaderboard ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    #leaderboard li {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+      margin: 5px 0;
+      transition: background 0.3s;
+    }
+
+    /* Quiz Section */
+    #quizContainer {
+      flex-grow: 1;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #000;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    /* Settings section – only the number of questions is needed */
+    #settings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #settings > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    select, input {
+      font-size: 16px;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 90%;
+      text-align: center;
+    }
+
+    /* Buttons */
+    button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    /* Timer */
+    #timer {
+      font-size: 18px;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      background-color: #ddd;
+      margin: 20px 0;
+      height: 25px;
+      border-radius: 5px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      height: 100%;
+      border-right: 2px solid #fff;
+      transition: background-color 0.3s;
+    }
+
+    /* Leaderboard Entry Styling */
+    .leaderboard-entry {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin: 5px 0;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-align: center;
+      width: 100%;
+    }
+
+    .leaderboard-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+    }
+
+    .leaderboard-entry span {
+      font-size: 14px;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Problem (Question) Display */
+    #problem {
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    /* Message & Score */
+    #message,
+    #score {
+      font-size: 18px;
+      font-weight: bold;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    /* Game Area */
+    #gameArea {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    /* Choices Container */
+    #choicesContainer button {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 850px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      #leaderboard {
+        width: 100%;
+      }
+      #settings {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      #quizContainer {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HP66XV8DT4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HP66XV8DT4');
+</script>
+
+<body>
+  <!-- The shared header is loaded dynamically -->
+  <div id="header"></div>
+  
+  <div class="container">
+    <!-- Leaderboard Section -->
+    <div id="leaderboard">
+      <h2>Scoreboard</h2>
+      <ul id="leaderboardList"></ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quizContainer">
+      <h1>Engineering Quiz</h1>
+
+      <!-- Quiz Settings -->
+      <div id="settings">
+        <!-- Grade Selection -->
+        <div>
+          <label for="gradeSelection">Select Grade:</label>
+          <select id="gradeSelection" onchange="resetGame()">
+            <option value="K">Kindergarten</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+            <option value="6">Grade 6</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+        </div>
+        
+        <!-- Number of Questions -->
+        <div>
+          <label for="totalQuestions">Questions (1-10):</label>
+          <input type="number" id="totalQuestions" value="10" min="1" max="100" onchange="validateRange(this, 1, 10); resetGame()" />
+        </div>
+      </div>
+
+      <!-- Start Button -->
+      <div class="button-container">
+        <button id="startButton" onclick="startQuiz()">Start</button>
+      </div>
+
+      <!-- Timer Display -->
+      <div id="timer" style="display: none;">Time: 0 seconds</div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progress-bar"></div>
+
+      <!-- Problem (Question) Display -->
+      <div id="problem"></div>
+
+      <!-- Game Area (Multiple-choice Answers) -->
+      <div id="gameArea" style="display: none;">
+        <div id="choicesContainer"></div>
+      </div>
+
+      <p id="message"></p>
+      <p id="score"></p>
+
+      <!-- Reset Button -->
+      <div class="button-container">
+        <button id="resetButton" style="display: none;" onclick="resetGame()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load the external script that handles header and footer loading -->
+  <script defer src="script.js"></script>
+
+  <!-- Quiz JavaScript -->
+  <script>
+    // Global variables
+    let engineeringList = [];      // full engineering list loaded from engineering.json
+    let quizWords = [];      // words selected for the current quiz
+    let currentQuestion = 0;
+    let correctCount = 0;
+    let totalQuestions = 0;
+    let progressBar;
+    let timerInterval;
+    let elapsedTime = 0;
+    let leaderboard = [];
+    let acceptingAnswers = true;
+
+    // Validate number input
+    function validateRange(input, min, max) {
+      if (input.value < min) input.value = min;
+      if (input.value > max) input.value = max;
+    }
+
+    function resetGame() {
+      clearInterval(timerInterval);
+      elapsedTime = 0;
+      document.getElementById("timer").textContent = "Time: 0 seconds";
+      document.getElementById("timer").style.display = "none";
+      currentQuestion = 0;
+      correctCount = 0;
+      document.getElementById("score").textContent = "";
+      document.getElementById("message").textContent = "";
+      document.getElementById("startButton").style.display = "inline-block";
+      document.getElementById("gameArea").style.display = "none";
+      document.getElementById("resetButton").style.display = "none";
+      setupProgressBar();
+      document.getElementById("problem").textContent = "";
+      acceptingAnswers = true;
+    }
+
+    function setupProgressBar() {
+      let container = document.getElementById("progress-bar");
+      container.innerHTML = "";
+      totalQuestions = parseInt(document.getElementById("totalQuestions").value) || 10;
+      for (let i = 0; i < totalQuestions; i++) {
+        let div = document.createElement("div");
+        div.className = "progress-bar";
+        div.style.backgroundColor = "lightgray";
+        container.appendChild(div);
+      }
+      progressBar = document.getElementsByClassName("progress-bar");
+    }
+
+    function startQuiz() {
+      document.getElementById("startButton").style.display = "none";
+      document.getElementById("gameArea").style.display = "block";
+      document.getElementById("timer").style.display = "block";
+      elapsedTime = 0;
+      
+      timerInterval = setInterval(() => {
+        elapsedTime++;
+        document.getElementById("timer").textContent = `Time: ${elapsedTime} seconds`;
+      }, 1000);
+
+      // Get the selected grade from the dropdown BEFORE fetching data
+      const selectedGrade = document.getElementById("gradeSelection").value;
+
+      // Load engineering from external JSON
+      fetch('engineering.json')
+        .then(response => response.json())
+        .then(data => {
+          // Check if the selected grade exists in the data
+          if (data[selectedGrade]) {
+            engineeringList = data[selectedGrade]; // Use only the words for the selected grade
+          } else {
+            engineeringList = []; // Default to an empty list if something goes wrong
+            console.warn(`No engineering found for grade: ${selectedGrade}`);
+          }
+          
+          initializeQuizWords();
+          generateQuestion();
+        })
+        .catch(error => {
+          console.error('Error loading engineering:', error);
+        });
+    }
+
+    function initializeQuizWords() {
+      // Make a copy of the engineering list and select the required number of questions
+      let copy = [...engineeringList];
+      totalQuestions = parseInt(document.getElementById("totalQuestions").value) || 10;
+      shuffleArray(copy);
+      // If there are more words than needed, take only the first totalQuestions words.
+      if (copy.length > totalQuestions) {
+        quizWords = copy.slice(0, totalQuestions);
+      } else {
+        quizWords = copy;
+      }
+    }
+
+    function generateQuestion() {
+      if (currentQuestion >= totalQuestions) {
+        finishQuiz();
+        return;
+      }
+
+      // Get the current engineering item
+      let questionItem = quizWords[currentQuestion];
+      // Display the word as the question
+      document.getElementById("problem").textContent = `What is the definition of "${questionItem.word}"?`;
+
+      // Prepare answer choices: one correct and three incorrect definitions
+      let correctDefinition = questionItem.definition;
+      let choices = [correctDefinition];
+
+      // Get incorrect options from the full engineering list (filtering out the correct one)
+      let incorrectOptions = engineeringList.filter(item => item.definition !== correctDefinition);
+      shuffleArray(incorrectOptions);
+      for (let i = 0; i < 3 && i < incorrectOptions.length; i++) {
+        choices.push(incorrectOptions[i].definition);
+      }
+      // Shuffle the answer choices so the correct answer isn’t always in the same place.
+      shuffleArray(choices);
+
+      // Display the choices as buttons in the choicesContainer
+      let container = document.getElementById("choicesContainer");
+      container.innerHTML = "";
+      choices.forEach(choice => {
+        let btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.onclick = function() { selectAnswer(choice); };
+        container.appendChild(btn);
+      });
+
+      document.getElementById("message").textContent = "";
+      acceptingAnswers = true;
+    }
+
+    function selectAnswer(selectedAnswer) {
+      if (!acceptingAnswers) return;
+      acceptingAnswers = false;
+
+      let questionItem = quizWords[currentQuestion];
+      let correctDefinition = questionItem.definition;
+
+      if (selectedAnswer === correctDefinition) {
+        document.getElementById("message").textContent = "Correct!";
+        progressBar[currentQuestion].style.backgroundColor = "green";
+        correctCount++;
+      } else {
+        document.getElementById("message").textContent = "Incorrect!";
+        progressBar[currentQuestion].style.backgroundColor = "red";
+      }
+
+      currentQuestion++;
+      setTimeout(() => {
+        generateQuestion();
+      }, 0);
+    }
+
+    function finishQuiz() {
+      clearInterval(timerInterval);
+      let scorePercent = Math.round((correctCount / totalQuestions) * 100);
+      document.getElementById("score").textContent = `Your Score: ${scorePercent}%`;
+      document.getElementById("gameArea").style.display = "none";
+      document.getElementById("resetButton").style.display = "inline-block";
+      addLeaderboardEntry(scorePercent, totalQuestions, document.getElementById("gradeSelection").value, elapsedTime);
+      updateLeaderboard();
+    }
+
+    // Utility function: Fisher-Yates shuffle
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function addLeaderboardEntry(score, totalQuestions, gradeSelection, time) {
+      leaderboard.push({
+        score: score,
+        total: totalQuestions,
+        gradeSelection: gradeSelection,
+        time: time,
+      });
+    }
+
+    function updateLeaderboard() {
+      let leaderboardList = document.getElementById("leaderboardList");
+      leaderboardList.innerHTML = "";
+      leaderboard.forEach((entry, index) => {
+        let li = document.createElement("li");
+        li.className = "leaderboard-entry";
+        li.innerHTML = `
+          <div class="leaderboard-row">
+            <span class="attempt">Attempt ${index + 1}: Grade ${entry.gradeSelection}</span>
+            <span class="score">${entry.score}%</span>
+          </div>
+          <div class="leaderboard-row">
+            <span class="details">${entry.total} questions</span>
+            <span class="time">${entry.time} sec</span>
+          </div>
+        `;
+        leaderboardList.appendChild(li);
+      });
+    }
+
+    // Initialize the game on page load
+    resetGame();
+  </script>
+
+  <!-- The shared footer is loaded dynamically -->
+  <div id="footer"></div>
+</body>
+</html>

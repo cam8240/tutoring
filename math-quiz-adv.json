@@ -1,0 +1,405 @@
+{
+    "wordProblems": [
+      {
+        "problem": "A store sold 12 items in the morning and 8 items in the afternoon. How many items were sold in total?",
+        "answer": 20
+      },
+      {
+        "problem": "Sarah had 5 apples and bought 7 more. How many apples does she have now?",
+        "answer": 12
+      },
+      {
+        "problem": "John read 15 pages on Monday and 20 pages on Tuesday. How many pages did he read in total?",
+        "answer": 35
+      },
+      {
+        "problem": "A baker made 30 cupcakes and sold 17. How many cupcakes are left?",
+        "answer": 13
+      },
+      {
+        "problem": "A car travels 50 miles in the morning and 75 miles in the afternoon. What is the total distance traveled?",
+        "answer": 125
+      },
+      {
+        "problem": "Lisa bought 3 packs of pencils, and each pack contains 12 pencils. How many pencils does she have in total?",
+        "answer": 36
+      },
+      {
+        "problem": "Mike has 6 rows of chairs. Each row has 8 chairs. How many chairs does he have in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A farmer has 9 cows and buys 6 more. How many cows does he have now?",
+        "answer": 15
+      },
+      {
+        "problem": "A box contains 144 marbles, and John gives away 36. How many marbles are left?",
+        "answer": 108
+      },
+      {
+        "problem": "A train leaves the station at 9 AM and arrives at 2 PM. How many hours was the journey?",
+        "answer": 5
+      },
+      {
+        "problem": "A pizza is cut into 12 slices. If 5 people each take 2 slices, how many slices remain?",
+        "answer": 2
+      },
+      {
+        "problem": "A basketball team scores 24 points in the first half and 37 points in the second half. What is their final score?",
+        "answer": 61
+      },
+      {
+        "problem": "Tom saves $10 every week. How much will he have saved in 6 weeks?",
+        "answer": 60
+      },
+      {
+        "problem": "A farmer harvests 500 apples but loses 75 due to bad weather. How many apples does he have left?",
+        "answer": 425
+      },
+      {
+        "problem": "A student scores 78 on her first test and 85 on her second test. What is her total score?",
+        "answer": 163
+      },
+      {
+        "problem": "A classroom has 28 students. If 7 students are absent, how many students are present?",
+        "answer": 21
+      },
+      {
+        "problem": "A family buys 4 tickets to a movie. Each ticket costs $12. How much do they spend in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A baker makes 36 cookies and packages them in boxes of 6. How many boxes does he need?",
+        "answer": 6
+      },
+      {
+        "problem": "A swimming pool holds 2,000 gallons of water. If 500 gallons evaporate, how much water remains?",
+        "answer": 1500
+      },
+      {
+        "problem": "A soccer team won 9 games, lost 3, and tied 2. How many total games did they play?",
+        "answer": 14
+      },
+      {
+        "problem": "If you spend $4 per day on lunch, how much will you have spent in 5 days?",
+        "answer": 20
+      },
+      {
+        "problem": "A box contains 96 crayons. If each student gets 8 crayons, how many students receive crayons?",
+        "answer": 12
+      },
+      {
+        "problem": "A farmer plants 250 trees in 5 equal rows. How many trees are in each row?",
+        "answer": 50
+      },
+      {
+        "problem": "A school has 540 students. If each classroom has 30 students, how many classrooms are there?",
+        "answer": 18
+      },
+      {
+        "problem": "A person walks 2 miles each day. How many miles will they walk in 4 weeks?",
+        "answer": 56
+      },
+      {
+        "problem": "A store sold 12 items in the morning and 8 items in the afternoon. How many items were sold in total?",
+        "answer": 20
+      },
+      {
+        "problem": "Sarah had 5 apples and bought 7 more. How many apples does she have now?",
+        "answer": 12
+      },
+      {
+        "problem": "John read 15 pages on Monday and 20 pages on Tuesday. How many pages did he read in total?",
+        "answer": 35
+      },
+      {
+        "problem": "A baker made 30 cupcakes and sold 17. How many cupcakes are left?",
+        "answer": 13
+      },
+      {
+        "problem": "A car travels 50 miles in the morning and 75 miles in the afternoon. What is the total distance traveled?",
+        "answer": 125
+      },
+      {
+        "problem": "Lisa bought 3 packs of pencils, and each pack contains 12 pencils. How many pencils does she have in total?",
+        "answer": 36
+      },
+      {
+        "problem": "Mike has 6 rows of chairs. Each row has 8 chairs. How many chairs does he have in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A farmer has 9 cows and buys 6 more. How many cows does he have now?",
+        "answer": 15
+      },
+      {
+        "problem": "A box contains 144 marbles, and John gives away 36. How many marbles are left?",
+        "answer": 108
+      },
+      {
+        "problem": "A train leaves the station at 9 AM and arrives at 2 PM. How many hours was the journey?",
+        "answer": 5
+      },
+      {
+        "problem": "A pizza is cut into 12 slices. If 5 people each take 2 slices, how many slices remain?",
+        "answer": 2
+      },
+      {
+        "problem": "A basketball team scores 24 points in the first half and 37 points in the second half. What is their final score?",
+        "answer": 61
+      },
+      {
+        "problem": "Tom saves $10 every week. How much will he have saved in 6 weeks?",
+        "answer": 60
+      },
+      {
+        "problem": "A farmer harvests 500 apples but loses 75 due to bad weather. How many apples does he have left?",
+        "answer": 425
+      },
+      {
+        "problem": "A student scores 78 on her first test and 85 on her second test. What is her total score?",
+        "answer": 163
+      },
+      {
+        "problem": "A classroom has 28 students. If 7 students are absent, how many students are present?",
+        "answer": 21
+      },
+      {
+        "problem": "A family buys 4 tickets to a movie. Each ticket costs $12. How much do they spend in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A baker makes 36 cookies and packages them in boxes of 6. How many boxes does he need?",
+        "answer": 6
+      },
+      {
+        "problem": "A swimming pool holds 2,000 gallons of water. If 500 gallons evaporate, how much water remains?",
+        "answer": 1500
+      },
+      {
+        "problem": "A soccer team won 9 games, lost 3, and tied 2. How many total games did they play?",
+        "answer": 14
+      },
+      {
+        "problem": "If you spend $4 per day on lunch, how much will you have spent in 5 days?",
+        "answer": 20
+      },
+      {
+        "problem": "A box contains 96 crayons. If each student gets 8 crayons, how many students receive crayons?",
+        "answer": 12
+      },
+      {
+        "problem": "A farmer plants 250 trees in 5 equal rows. How many trees are in each row?",
+        "answer": 50
+      },
+      {
+        "problem": "A school has 540 students. If each classroom has 30 students, how many classrooms are there?",
+        "answer": 18
+      },
+      {
+        "problem": "A person walks 2 miles each day. How many miles will they walk in 4 weeks?",
+        "answer": 56
+      },
+      {
+        "problem": "A store sold 12 items in the morning and 8 items in the afternoon. How many items were sold in total?",
+        "answer": 20
+      },
+      {
+        "problem": "Sarah had 5 apples and bought 7 more. How many apples does she have now?",
+        "answer": 12
+      },
+      {
+        "problem": "John read 15 pages on Monday and 20 pages on Tuesday. How many pages did he read in total?",
+        "answer": 35
+      },
+      {
+        "problem": "A baker made 30 cupcakes and sold 17. How many cupcakes are left?",
+        "answer": 13
+      },
+      {
+        "problem": "A car travels 50 miles in the morning and 75 miles in the afternoon. What is the total distance traveled?",
+        "answer": 125
+      },
+      {
+        "problem": "Lisa bought 3 packs of pencils, and each pack contains 12 pencils. How many pencils does she have in total?",
+        "answer": 36
+      },
+      {
+        "problem": "Mike has 6 rows of chairs. Each row has 8 chairs. How many chairs does he have in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A farmer has 9 cows and buys 6 more. How many cows does he have now?",
+        "answer": 15
+      },
+      {
+        "problem": "A box contains 144 marbles, and John gives away 36. How many marbles are left?",
+        "answer": 108
+      },
+      {
+        "problem": "A train leaves the station at 9 AM and arrives at 2 PM. How many hours was the journey?",
+        "answer": 5
+      },
+      {
+        "problem": "A pizza is cut into 12 slices. If 5 people each take 2 slices, how many slices remain?",
+        "answer": 2
+      },
+      {
+        "problem": "A basketball team scores 24 points in the first half and 37 points in the second half. What is their final score?",
+        "answer": 61
+      },
+      {
+        "problem": "Tom saves $10 every week. How much will he have saved in 6 weeks?",
+        "answer": 60
+      },
+      {
+        "problem": "A farmer harvests 500 apples but loses 75 due to bad weather. How many apples does he have left?",
+        "answer": 425
+      },
+      {
+        "problem": "A student scores 78 on her first test and 85 on her second test. What is her total score?",
+        "answer": 163
+      },
+      {
+        "problem": "A classroom has 28 students. If 7 students are absent, how many students are present?",
+        "answer": 21
+      },
+      {
+        "problem": "A family buys 4 tickets to a movie. Each ticket costs $12. How much do they spend in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A baker makes 36 cookies and packages them in boxes of 6. How many boxes does he need?",
+        "answer": 6
+      },
+      {
+        "problem": "A swimming pool holds 2,000 gallons of water. If 500 gallons evaporate, how much water remains?",
+        "answer": 1500
+      },
+      {
+        "problem": "A soccer team won 9 games, lost 3, and tied 2. How many total games did they play?",
+        "answer": 14
+      },
+      {
+        "problem": "If you spend $4 per day on lunch, how much will you have spent in 5 days?",
+        "answer": 20
+      },
+      {
+        "problem": "A box contains 96 crayons. If each student gets 8 crayons, how many students receive crayons?",
+        "answer": 12
+      },
+      {
+        "problem": "A farmer plants 250 trees in 5 equal rows. How many trees are in each row?",
+        "answer": 50
+      },
+      {
+        "problem": "A school has 540 students. If each classroom has 30 students, how many classrooms are there?",
+        "answer": 18
+      },
+      {
+        "problem": "A person walks 2 miles each day. How many miles will they walk in 4 weeks?",
+        "answer": 56
+      },
+      {
+        "problem": "A store sold 12 items in the morning and 8 items in the afternoon. How many items were sold in total?",
+        "answer": 20
+      },
+      {
+        "problem": "Sarah had 5 apples and bought 7 more. How many apples does she have now?",
+        "answer": 12
+      },
+      {
+        "problem": "John read 15 pages on Monday and 20 pages on Tuesday. How many pages did he read in total?",
+        "answer": 35
+      },
+      {
+        "problem": "A baker made 30 cupcakes and sold 17. How many cupcakes are left?",
+        "answer": 13
+      },
+      {
+        "problem": "A car travels 50 miles in the morning and 75 miles in the afternoon. What is the total distance traveled?",
+        "answer": 125
+      },
+      {
+        "problem": "Lisa bought 3 packs of pencils, and each pack contains 12 pencils. How many pencils does she have in total?",
+        "answer": 36
+      },
+      {
+        "problem": "Mike has 6 rows of chairs. Each row has 8 chairs. How many chairs does he have in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A farmer has 9 cows and buys 6 more. How many cows does he have now?",
+        "answer": 15
+      },
+      {
+        "problem": "A box contains 144 marbles, and John gives away 36. How many marbles are left?",
+        "answer": 108
+      },
+      {
+        "problem": "A train leaves the station at 9 AM and arrives at 2 PM. How many hours was the journey?",
+        "answer": 5
+      },
+      {
+        "problem": "A pizza is cut into 12 slices. If 5 people each take 2 slices, how many slices remain?",
+        "answer": 2
+      },
+      {
+        "problem": "A basketball team scores 24 points in the first half and 37 points in the second half. What is their final score?",
+        "answer": 61
+      },
+      {
+        "problem": "Tom saves $10 every week. How much will he have saved in 6 weeks?",
+        "answer": 60
+      },
+      {
+        "problem": "A farmer harvests 500 apples but loses 75 due to bad weather. How many apples does he have left?",
+        "answer": 425
+      },
+      {
+        "problem": "A student scores 78 on her first test and 85 on her second test. What is her total score?",
+        "answer": 163
+      },
+      {
+        "problem": "A classroom has 28 students. If 7 students are absent, how many students are present?",
+        "answer": 21
+      },
+      {
+        "problem": "A family buys 4 tickets to a movie. Each ticket costs $12. How much do they spend in total?",
+        "answer": 48
+      },
+      {
+        "problem": "A baker makes 36 cookies and packages them in boxes of 6. How many boxes does he need?",
+        "answer": 6
+      },
+      {
+        "problem": "A swimming pool holds 2,000 gallons of water. If 500 gallons evaporate, how much water remains?",
+        "answer": 1500
+      },
+      {
+        "problem": "A soccer team won 9 games, lost 3, and tied 2. How many total games did they play?",
+        "answer": 14
+      },
+      {
+        "problem": "If you spend $4 per day on lunch, how much will you have spent in 5 days?",
+        "answer": 20
+      },
+      {
+        "problem": "A box contains 96 crayons. If each student gets 8 crayons, how many students receive crayons?",
+        "answer": 12
+      },
+      {
+        "problem": "A farmer plants 250 trees in 5 equal rows. How many trees are in each row?",
+        "answer": 50
+      },
+      {
+        "problem": "A school has 540 students. If each classroom has 30 students, how many classrooms are there?",
+        "answer": 18
+      },
+      {
+        "problem": "A person walks 2 miles each day. How many miles will they walk in 4 weeks?",
+        "answer": 56
+      }
+    ]
+  }
+  

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevate Learning - Advanced Math Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <style>
+    /* The inline styles below are your original quiz page styles */
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Container layout */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Leaderboard Styling */
+#leaderboard {
+    width: 280px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#leaderboard h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+
+#leaderboard ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+#leaderboard li {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin: 5px 0;
+    transition: background 0.3s;
+}
+
+/* Quiz Section */
+#quizContainer {
+    flex-grow: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #000;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+/* Settings section */
+#settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#settings > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+select, input {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 90%;
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Timer */
+#timer {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    margin: 20px 0;
+    height: 25px;
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 100%;
+    border-right: 2px solid #fff;
+    transition: background-color 0.3s;
+}
+
+/* Leaderboard Entry Styling */
+.leaderboard-entry {
+    display: flex;
+    flex-direction: column; /* Two-line format */
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Uniform background */
+    margin: 5px 0;
+    font-size: 14px; /* Consistent text size */
+    font-weight: normal; /* Remove extra boldness */
+    transition: background 0.3s;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Row styling */
+.leaderboard-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+}
+
+/* Consistent Text Styling */
+.leaderboard-entry span {
+    font-size: 14px; /* Uniform font size */
+    color: #333; /* Same color for all text */
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+}
+
+/* Problem Display */
+#problem {
+    font-size: 32px;
+    font-weight: bold;
+    color: #222;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Message & Score */
+#message,
+#score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+}
+
+/* Game Area */
+#gameArea {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#gameArea input {
+    font-size: 18px;
+    padding: 8px;
+    width: 220px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #leaderboard {
+        width: 100%;
+    }
+
+    #settings {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    #quizContainer {
+        width: 100%;
+    }
+}
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HP66XV8DT4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HP66XV8DT4');
+</script>
+
+<body>
+  <!-- The shared header is loaded dynamically -->
+  <div id="header"></div>
+  
+  <div class="container">
+    <!-- Leaderboard Section -->
+    <div id="leaderboard">
+      <h2>Scoreboard</h2>
+      <ul id="leaderboardList"></ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quizContainer">
+      <h1>Advanced Math Quiz</h1>
+
+      <!-- Quiz Settings -->
+      <div id="settings">
+        <div>
+          <label for="operation">Operation:</label>
+          <select id="operation" onchange="resetGame()">
+            <option value="wordProblems">Word Problems</option>
+            <option value="linearEquations">Linear Equations</option>
+            <option value="quadraticEquations">Quadratic Equations</option>
+            <option value="complexNumbers">Complex Numbers</option>
+            <option value="integrals">Integrals</option>
+            <option value="derivatives">Derivatives</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="range">Range (1-10,000):</label>
+          <input type="number" id="range" value="10" min="1" max="10000" onchange="validateRange(this, 1, 10000); resetGame()" />
+        </div>
+
+        <div>
+          <label for="includeNegatives">
+            <input type="checkbox" id="includeNegatives" onchange="resetGame()" />
+            Include Negatives
+          </label>
+        </div>
+
+        <div>
+          <label for="totalQuestions">Questions (1-100):</label>
+          <input type="number" id="totalQuestions" value="10" min="1" max="100" onchange="validateRange(this, 1, 100); resetGame()" />
+        </div>
+      </div>
+
+      <!-- Start Button -->
+      <div class="button-container">
+        <button id="startButton" onclick="startQuiz()">Start</button>
+      </div>
+
+      <!-- Timer Display -->
+      <div id="timer" style="display: none;">Time: 0 seconds</div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container" id="progress-bar"></div>
+
+      <!-- Problem Display -->
+      <div id="problem"></div>
+
+      <!-- Game Area (Answer Input and Submit Button) -->
+      <div id="gameArea" style="display: none;">
+        <!-- Container for non-division answers -->
+        <div id="singleAnswerContainer">
+          <input type="text" id="answer" placeholder="Enter your answer" onkeypress="handleKeyPress(event)" />
+        </div>
+        
+        <!-- Container for division answers -->
+        <div id="divisionAnswerContainer" style="display: none;">
+          <input type="number" id="quotientAnswer" placeholder="Quotient" onkeypress="handleKeyPress(event)" />
+          <input type="number" id="remainderAnswer" placeholder="Remainder" onkeypress="handleKeyPress(event)" />
+        </div>
+        
+        <button id="submitButton" onclick="checkAnswer()">Submit</button>
+      </div>
+
+      <p id="message"></p>
+      <p id="score"></p>
+
+      <!-- Reset Button -->
+      <div class="button-container">
+        <button id="resetButton" style="display: none;" onclick="resetGame()">Reset</button>
+      </div>
+    </div>
+  </div>
+</body>
+  
+  <!-- Load the external script that handles header and footer loading -->
+  <script defer src="script.js"></script>
+  
+  <!-- Quiz JavaScript -->
+  <script>
+    let wordProblemsData = [];
+
+    fetch('math-quiz-adv.json')
+      .then(response => response.json())
+      .then(data => {
+        wordProblemsData = data.wordProblems;  // Assign the array from the JSON
+      })
+      .catch(error => {
+        console.error("Error loading word problems:", error);
+      });
+      
+    let num1, num2, correctAnswer, operation;
+    let currentQuestion = 0;
+    let correctCount = 0;
+    let progressBar;
+    let timerInterval;
+    let elapsedTime = 0;
+    let leaderboard = [];
+    let acceptingAnswers = true; // flag to prevent multiple submissions
+
+    function validateRange(input, min, max) {
+      if (input.value < min) input.value = min;
+      if (input.value > max) input.value = max;
+    }
+
+    function resetGame() {
+      clearInterval(timerInterval);
+      elapsedTime = 0;
+      document.getElementById("timer").textContent = "Time: 0 seconds";
+      document.getElementById("timer").style.display = "none";
+      currentQuestion = 0;
+      correctCount = 0;
+      document.getElementById("score").textContent = "";
+      document.getElementById("message").textContent = "";
+      document.getElementById("startButton").style.display = "inline-block";
+      document.getElementById("gameArea").style.display = "none";
+      document.getElementById("resetButton").style.display = "none";
+      setupProgressBar();
+      document.getElementById("problem").textContent = "";
+      document.getElementById("answer").disabled = false;
+      document.getElementById("submitButton").disabled = false;
+      acceptingAnswers = true;
+    }
+
+    function setupProgressBar() {
+      let container = document.getElementById("progress-bar");
+      container.innerHTML = "";
+      let totalQuestions = parseInt(document.getElementById("totalQuestions").value) || 10;
+      for (let i = 0; i < totalQuestions; i++) {
+        let div = document.createElement("div");
+        div.className = "progress-bar";
+        div.style.backgroundColor = "lightgray";
+        container.appendChild(div);
+      }
+      progressBar = document.getElementsByClassName("progress-bar");
+    }
+
+    function startQuiz() {
+      document.getElementById("startButton").style.display = "none";
+      document.getElementById("gameArea").style.display = "block";
+      document.getElementById("timer").style.display = "block";
+      elapsedTime = 0;
+      timerInterval = setInterval(() => {
+        elapsedTime++;
+        document.getElementById("timer").textContent = `Time: ${elapsedTime} seconds`;
+      }, 1000);
+      generateProblem();
+    }
+
+    function generateProblem() {
+      let totalQuestions = parseInt(document.getElementById("totalQuestions").value) || 10;
+      if (currentQuestion >= totalQuestions) {
+        clearInterval(timerInterval);
+        let scorePercent = Math.round((correctCount / totalQuestions) * 100);
+        document.getElementById("score").textContent = `Your Score: ${scorePercent}%`;
+        document.getElementById("gameArea").style.display = "none";
+        document.getElementById("resetButton").style.display = "inline-block";
+        addLeaderboardEntry(scorePercent, totalQuestions, document.getElementById("operation").value, elapsedTime);
+        updateLeaderboard();
+        return;
+      }
+
+      // Get the operation selection:
+      operation = document.getElementById("operation").value;
+
+      // Here you add cases for the advanced math problem types:
+      switch (operation) {
+        case "wordProblems":
+          // Instead of generating a problem on the fly,
+          // pull a random word problem from preloaded JSON data.
+          // Assume wordProblemsData is a global variable containing the array of problems.
+          if (!wordProblemsData || wordProblemsData.length === 0) {
+            document.getElementById("problem").textContent = "No word problems available.";
+            return;
+          }
+          let randomIndex = Math.floor(Math.random() * wordProblemsData.length);
+          let selectedProblem = wordProblemsData[randomIndex];
+          correctAnswer = selectedProblem.answer;
+          document.getElementById("problem").textContent = selectedProblem.problem;
+          break;
+
+        case "linearEquations":
+          // Generate a simple linear equation: ax + b = c.
+          // Choose a nonzero coefficient a and then compute x.
+          let a = Math.floor(Math.random() * 10) + 1;
+          let xSol = Math.floor(Math.random() * 20) - 10;
+          let b = Math.floor(Math.random() * 10) - 5;
+          let c = a * xSol + b;
+          correctAnswer = xSol;
+          document.getElementById("problem").textContent = `Solve for x: ${a}x + ${b} = ${c}`;
+          break;
+
+        case "quadraticEquations":
+          // Generate a quadratic equation: x² + bx + c = 0
+          // For simplicity, choose b and c so that the discriminant is a perfect square.
+          let b2 = Math.floor(Math.random() * 10) - 5;
+          let c2 = Math.floor(Math.random() * 10) - 5;
+          let disc = b2 * b2 - 4 * c2;
+          // Adjust until discriminant is non-negative and a perfect square.
+          while (disc < 0 || Math.sqrt(disc) % 1 !== 0) {
+            b2 = Math.floor(Math.random() * 10) - 5;
+            c2 = Math.floor(Math.random() * 10) - 5;
+            disc = b2 * b2 - 4 * c2;
+          }
+          // Compute the two solutions (we will consider the smaller one as correct for this example)
+          let sol1 = (-b2 + Math.sqrt(disc)) / 2;
+          let sol2 = (-b2 - Math.sqrt(disc)) / 2;
+          // Choose one solution (or you could ask for both)
+          correctAnswer = sol1; // or sol2
+          document.getElementById("problem").textContent = `Solve for x (choose one solution): x² + ${b2}x + ${c2} = 0`;
+          break;
+
+        case "complexNumbers":
+          // Generate a problem with complex numbers.
+          // For example: (a + bi) + (c + di) = ? 
+          let a1 = Math.floor(Math.random() * 10);
+          let bi1 = Math.floor(Math.random() * 10);
+          let a2 = Math.floor(Math.random() * 10);
+          let bi2 = Math.floor(Math.random() * 10);
+          // For addition, the answer is: (a1+a2) + (b1+b2)i
+          correctAnswer = { real: a1 + a2, imaginary: bi1 + bi2 };
+          document.getElementById("problem").textContent = `(${a1} + ${bi1}i) + (${a2} + ${bi2}i) = ? (Enter as "real,imaginary")`;
+          break;
+
+        case "integrals":
+          // Generate a basic integral problem.
+          // For example: ∫ x dx from 0 to N, which is N^2/2.
+          let N = Math.floor(Math.random() * 10) + 1;
+          correctAnswer = (N * N) / 2;
+          document.getElementById("problem").textContent = `Compute ∫ from 0 to ${N} of x dx.`;
+          break;
+
+        case "derivatives":
+          // Generate a basic derivative problem.
+          // For example: d/dx (ax^2) = 2ax.
+          let aCoeff = Math.floor(Math.random() * 10) + 1;
+          let xValue = Math.floor(Math.random() * 10);
+          correctAnswer = 2 * aCoeff * xValue;
+          document.getElementById("problem").textContent = `Find the derivative of ${aCoeff}x² at x = ${xValue}.`;
+          break;
+
+        default:
+          // You can default to one of the types if needed.
+          document.getElementById("problem").textContent = "Invalid operation selected.";
+          return;
+      }
+
+      // Set up the answer input area.
+      // For problems with a single answer (all of the above except maybe complex numbers),
+      // you can use the singleAnswerContainer. For complex numbers, you might want to
+      // instruct the user to enter two comma-separated numbers.
+      document.getElementById("singleAnswerContainer").style.display = "block";
+      document.getElementById("divisionAnswerContainer").style.display = "none";
+      document.getElementById("answer").value = "";
+      document.getElementById("message").textContent = "";
+      acceptingAnswers = true;
+    }
+
+    function checkAnswer() {
+      if (!acceptingAnswers) return;
+      acceptingAnswers = false;
+
+      let userAnswer;
+      if (operation === "complexNumbers") {
+        // Expect the answer in the format "real,imaginary"
+        userAnswer = document.getElementById("answer").value.trim().split(",");
+        if (userAnswer.length !== 2) {
+          document.getElementById("message").textContent = "Enter two numbers separated by a comma.";
+          acceptingAnswers = true;
+          return;
+        }
+        // Parse both parts
+        userAnswer = { real: parseFloat(userAnswer[0]), imaginary: parseFloat(userAnswer[1]) };
+        if (
+          userAnswer.real === correctAnswer.real &&
+          userAnswer.imaginary === correctAnswer.imaginary
+        ) {
+          document.getElementById("message").textContent = "Correct!";
+          progressBar[currentQuestion].style.backgroundColor = "green";
+          correctCount++;
+        } else {
+          document.getElementById("message").textContent = "Try again!";
+          progressBar[currentQuestion].style.backgroundColor = "red";
+        }
+      } else {
+        // For all other cases assume a single numeric answer.
+        userAnswer = document.getElementById("answer").value.trim();
+        if (parseFloat(userAnswer) === correctAnswer) {
+          document.getElementById("message").textContent = "Correct!";
+          progressBar[currentQuestion].style.backgroundColor = "green";
+          correctCount++;
+        } else {
+          document.getElementById("message").textContent = "Try again!";
+          progressBar[currentQuestion].style.backgroundColor = "red";
+        }
+      }
+
+      currentQuestion++;
+      setTimeout(() => {
+        generateProblem();
+        document.getElementById("answer").focus();
+      }, 0);
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        checkAnswer();
+      }
+    }
+
+    function addLeaderboardEntry(score, totalQuestions, operation, time) {
+      leaderboard.push({
+        score: score,
+        total: totalQuestions,
+        operation: operation,
+        time: time,
+      });
+    }
+
+    function updateLeaderboard() {
+        let leaderboardList = document.getElementById("leaderboardList");
+        leaderboardList.innerHTML = ""; // Clear existing entries
+
+        leaderboard.forEach((entry, index) => {
+            let li = document.createElement("li");
+            li.className = "leaderboard-entry"; // Add a class for styling
+
+            // Two-line format with uniform styling
+            li.innerHTML = `
+                <div class="leaderboard-row">
+                    <span class="attempt">Attempt ${index + 1}: ${entry.operation}</span>
+                    <span class="score">${entry.score}%</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span class="details">${entry.total} questions</span>
+                    <span class="time">${entry.time} sec</span>
+                </div>
+            `;
+
+            leaderboardList.appendChild(li);
+        });
+    }
+
+    resetGame();
+  </script>
+
+    <!-- The shared footer is loaded dynamically -->
+    <div id="footer"></div>
+</body>
+</html>
