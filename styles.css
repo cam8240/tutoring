@@ -270,6 +270,15 @@ button:hover {
   #quizContainer {
     width: 100%;
   }
+
+  #choicesContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #choicesContainer button {
+    width: 100%;
+    white-space: normal;
+  }
   
   /* Adjust problem text size and wrapping */
   #problem {
