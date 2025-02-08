@@ -91,17 +91,17 @@
   }
 
   .menu-toggle .bar {
-    height: 3px;
+    height: 2px;
     width: 30px;
     background-color: white;
-    margin: 5px 0;
+    margin: 4px 0;
     transition: 0.3s;
   }
 
   /* Default hidden navigation */
   .nav-list {
     position: absolute;
-    top: 60px; /* Ensures it starts below the header */
+    top: 45px; /* Ensures it starts below the header */
     left: 0;
     right: 0;
     background: #28a745;
@@ -115,19 +115,19 @@
   }
 
   .nav-list li {
-    margin: 15px 0;
+    margin: 12px 0;
   }
 
   /* Expand header dynamically when menu is open */
   header.expanded {
-    padding-bottom: 300px;
+    padding-bottom: 240px;
   }
 
   /* When menu is active, show it properly */
   .nav-list.active {
     display: flex;
-    max-height: 300px; /* Adjust height dynamically */
-    padding: 20px 0;
+    max-height: 240px; /* Adjust height dynamically */
+    padding: 10px 0;
   }
 
   /* Adjust general container for smaller screens */
