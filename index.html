@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="C3Fi2D8g6VHRfqYjfiXsl0MiEkw4VL3DRxAFK7Cz0FI" />
   <title>Elevate Learning - Home</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     .services {
       margin: 40px 0;
@@ -40,8 +38,9 @@
       font-size: 1em;
       margin: 10px 0;
     }
+    
+    /* Generic Hero Styling */
     .hero {
-      background: url('images/school-background.png'); /* Replace with your image path */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -71,31 +70,31 @@
   </style>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HP66XV8DT4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HP66XV8DT4');
-</script>
-
 <body class="home">
-  <!-- Header will be loaded here -->
   <div id="header"></div>
   
   <main class="container">
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero Section with different images -->
+    <section class="hero" style="background-image: url('images/school-background.png');">
       <h1>Welcome to Elevate Learning</h1>
       <p>Sharpen your skills with 1:1 tutoring, test prep, college coaching, interactive challenges, and more!</p>
       <a href="services.html">Get Started</a>
     </section>
 
+    <section class="hero" style="background-image: url('images/daily-challenge-background.png');">
+      <h1>Daily Challenge</h1>
+      <p>Test your knowledge with a quick 5-minute challenge.</p>
+      <a>Coming Soon!</a>
+    </section>
+
+    <section class="hero" style="background-image: url('images/membership-background.png');">
+      <h1>Join Elevate Learning Pro</h1>
+      <p>Unlock unlimited premium content and more.</p>
+      <a>Coming Soon!</a>
+    </section>
+      
   </main>
   
-  <!-- Footer will be loaded here -->
   <div id="footer"></div>
   
   <script defer src="script.js"></script>

@@ -16,14 +16,27 @@
       font-size: 2em;
       margin-bottom: 20px;
     }
+    .search-box {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .search-box input {
+      width: 60%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
     .quizzes-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       justify-content: center;
       max-width: 900px;
       margin: 0 auto;
+      align-items: start;
     }
+    
     .quiz-box {
       background: #fff;
       border: 1px solid #ddd;
@@ -32,7 +45,7 @@
       padding: 20px;
       flex: 1 1 250px;
       max-width: 300px;
-      text-align: center; /* Centers content inside the box */
+      text-align: center;
     }
     .quiz-box h3 {
       font-size: 1.5em;
@@ -57,6 +70,9 @@
     .quiz-box a:hover {
       background: #218838;
     }
+    .search-box input {
+        width: 200px;
+      }
 
     @media (max-width: 600px) {
       .quizzes-container {
@@ -67,12 +83,16 @@
   </style>
 </head>
 <body>
-  <!-- Shared header loaded dynamically -->
   <div id="header"></div>
   <script defer src="script.js"></script>
 
   <main class="container">
-    <h1> Quizzes </h1>
+    <h1>Quizzes</h1>
+
+    <!-- Search Box -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search" onkeyup="filterQuizzes()">
+    </div>
 
     <!-- Quizzes Section -->
     <section class="quizzes">
@@ -111,7 +131,22 @@
     </section>
   </main>
 
-  <!-- Shared footer loaded dynamically -->
   <div id="footer"></div>
+
+  <script>
+    function filterQuizzes() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let quizBoxes = document.querySelectorAll('.quiz-box');
+
+      quizBoxes.forEach(box => {
+        let title = box.querySelector('h3').innerText.toLowerCase();
+        if (title.includes(input)) {
+          box.style.display = "block";
+        } else {
+          box.style.display = "none";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
