@@ -40,6 +40,33 @@
       font-size: 1em;
       margin: 10px 0;
     }
+    .hero {
+      background: url('images/school-background.png'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      padding: 60px 20px;
+      text-align: center;
+      color: white; /* Adjust text color if necessary */
+      width: 100%;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 128, 0, 0.4); /* Green overlay with transparency */
+      z-index: 1;
+    }
+
+    .hero h1, .hero p, .hero a {
+      position: relative;
+      z-index: 2;
+    }
   </style>
 </head>
 
@@ -61,27 +88,8 @@
     <!-- Hero Section -->
     <section class="hero">
       <h1>Welcome to Elevate Learning</h1>
-      <p>Sharpen your math skills with 1:1 tutoring, test prep, college coaching, interactive challenges, and more!</p>
+      <p>Sharpen your skills with 1:1 tutoring, test prep, college coaching, interactive challenges, and more!</p>
       <a href="services.html">Get Started</a>
-    </section>
-    
-    <!-- Services Section -->
-    <section class="services">
-      <h2>Our Services</h2>
-      <div class="services-container">
-        <div class="service-box">
-          <h3>1:1 Tutoring</h3>
-          <p>Personalized, one-on-one tutoring sessions tailored to your unique learning needs.</p>
-        </div>
-        <div class="service-box">
-          <h3>Test Prep</h3>
-          <p>Comprehensive preparation for standardized tests, including SAT, ACT, and more.</p>
-        </div>
-        <div class="service-box">
-          <h3>College Coaching</h3>
-          <p>Guidance on college admissions, application strategies, and essay writing support.</p>
-        </div>
-      </div>
     </section>
 
   </main>

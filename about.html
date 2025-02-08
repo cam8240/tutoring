@@ -7,21 +7,39 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
-    /* Additional styling for the About page */
+    /* Styling for the About page */
     .about-page {
       text-align: center;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
+
     .about-page h1 {
       color: #28a745;
+      font-size: 2.2em;
+      margin-bottom: 20px;
     }
-    .about-page p {
+
+    .about-content {
+      text-align: left;
       font-size: 1.1em;
       line-height: 1.6;
-      max-width: 800px;
-      margin: 20px auto;
-      margin: 20px auto;
-      padding: 20px;
-      gap: 20px;
+    }
+
+    .headshot {
+      float: left; /* Align image to the left */
+      margin: 0 20px 0 0; /* Adds spacing between the image and text */
+      width: 150px; /* Adjust image size */
+      border-radius: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .headshot {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto; /* Centers image for smaller screens */
+      }
     }
   </style>
 </head>
@@ -44,28 +62,39 @@
   <main class="container">
     <div class="about-page">
       <h1>About Elevate Learning</h1>
-      <p>
-        Elevate Learning is a personalized learning platform dedicated to helping students excel in math. 
-        Run independently, I offer 1:1 tutoring, test prep, college coaching, and interactive challenges 
-        designed to strengthen problem-solving skills and build confidence. Whether you're preparing 
-        for exams, applying to college, or simply looking to improve your math abilities, I provide 
-        tailored support. Join Elevate Learning today and take the next step toward achieving your goals.
-      </p>
-      <p>
-        Hi, I'm Cameron! I am a senior at the University of Illinois Urbana-Champaign, majoring in 
-        Computer Engineering with a minor in the Hoeft Technology & Management Program. With a 
-        strong background in both technical and educational roles, I have interned at Northrop 
-        Grumman as a Software Systems Engineer, focusing on automation, data analysis, and system 
-        simulations. I have over five years of tutoring experience, including two years at 
-        Mathnasium and three years providing STEM tutoring online. I specialize in 1:1 tutoring, 
-        test prep, and college coaching, helping students build confidence and achieve their 
-        academic goals. Beyond tutoring, I am skilled in several programming languages, hardware 
-        development and testing, general engineering, app development, trading algorithms, robotics,
-        computer science, physics, math, business management, and language arts. Passionate about 
-        both education and technology, I also enjoy projects on the side, like this tutoring 
-        business, and believe in sharing the knowledge I have gained with younger students. Dedicated 
-        to problem-solving and continuous learning, I am committed to making a lasting impact.
-      </p>
+
+      <div class="about-content">
+        <!-- Headshot Image -->
+        <img src="images/headshot.jpg" alt="Cameron Headshot" class="headshot">
+
+        <!-- About Text -->
+        <p>
+          Hi, I'm Cameron! I am a senior at the University of Illinois Urbana-Champaign, majoring in 
+          Computer Engineering with a minor in the Hoeft Technology & Management Program. With a 
+          strong background in both technical and educational roles, I have interned at Northrop 
+          Grumman as a Software Systems Engineer, focusing on automation, data analysis, and system 
+          simulations. I have over five years of tutoring experience, including two years at 
+          Mathnasium and three years providing STEM tutoring online.
+        </p>
+
+        <p>
+          I specialize in 1:1 tutoring, test prep, and college coaching, helping students build 
+          confidence and achieve their academic goals. Beyond tutoring, I am skilled in several 
+          programming languages, hardware development, general engineering, app development, trading 
+          algorithms, robotics, physics, business management, and language arts. Passionate about 
+          both education and technology, I enjoy side projects like this tutoring business and believe 
+          in sharing knowledge with younger students. Dedicated to problem-solving and continuous 
+          learning, I am committed to making a lasting impact.
+        </p>
+
+        <p>
+          Elevate Learning is a personalized learning platform dedicated to helping students excel in math. 
+          Run independently, I offer 1:1 tutoring, test prep, college coaching, and interactive challenges 
+          designed to strengthen problem-solving skills and build confidence. Whether you're preparing 
+          for exams, applying to college, or simply looking to improve your math abilities, I provide 
+          tailored support. Join Elevate Learning today and take the next step toward achieving your goals.
+        </p>
+      </div>
     </div>
   </main>
   
