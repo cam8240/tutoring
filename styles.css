@@ -166,6 +166,7 @@ main {
   border-radius: 5px;
   padding: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  max-width: 74%;
 }
 /* Default h1 styling for non-home pages */
 h1 {
@@ -269,6 +270,7 @@ button:hover {
   
   #quizContainer {
     width: 100%;
+    max-width: 100%;
   }
 
   #choicesContainer {

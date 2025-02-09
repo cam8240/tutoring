@@ -8,238 +8,240 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     /* The inline styles below are your original quiz page styles */
-/* Global Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-/* Container layout */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    gap: 20px;
-}
-
-/* Leaderboard Styling */
-#leaderboard {
-    width: 280px;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-#leaderboard h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #000;
-    border-bottom: 2px solid #000;
-    padding-bottom: 5px;
-}
-
-#leaderboard ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-#leaderboard li {
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    margin: 5px 0;
-    transition: background 0.3s;
-}
-
-/* Quiz Section */
-#quizContainer {
-    flex-grow: 1;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-h1 {
-    color: #000;
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
-/* Settings section */
-#settings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#settings > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-}
-
-select, input {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 90%;
-    text-align: center;
-}
-
-/* Buttons */
-button {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-/* Timer */
-#timer {
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #000;
-}
-
-/* Progress Bar */
-.progress-container {
-    width: 100%;
-    background-color: #ddd;
-    margin: 20px 0;
-    height: 25px;
-    border-radius: 5px;
-    display: flex;
-    overflow: hidden;
-}
-
-.progress-bar {
-    flex-grow: 1;
-    height: 100%;
-    border-right: 2px solid #fff;
-    transition: background-color 0.3s;
-}
-
-/* Leaderboard Entry Styling */
-.leaderboard-entry {
-    display: flex;
-    flex-direction: column; /* Two-line format */
-    padding: 8px 12px;
-    border-radius: 5px;
-    background-color: #f9f9f9; /* Uniform background */
-    margin: 5px 0;
-    font-size: 14px; /* Consistent text size */
-    font-weight: normal; /* Remove extra boldness */
-    transition: background 0.3s;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-}
-
-/* Row styling */
-.leaderboard-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 3px 0;
-}
-
-/* Consistent Text Styling */
-.leaderboard-entry span {
-    font-size: 14px; /* Uniform font size */
-    color: #333; /* Same color for all text */
-    font-family: Arial, sans-serif; /* Ensure consistent font */
-}
-
-/* Problem Display */
-#problem {
-    font-size: 32px;
-    font-weight: bold;
-    color: #222;
-    margin: 20px 0;
-    text-align: center;
-}
-
-/* Message & Score */
-#message,
-#score {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 10px;
-}
-
-/* Game Area */
-#gameArea {
-    text-align: center;
-    margin-top: 15px;
-}
-
-#gameArea input {
-    font-size: 18px;
-    padding: 8px;
-    width: 220px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 850px) {
+    /* Global Styles */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    
+    /* Container layout */
     .container {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    /* Leaderboard Styling */
+    #leaderboard {
+        width: 280px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    #leaderboard h2 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #000;
+        border-bottom: 2px solid #000;
+        padding-bottom: 5px;
+    }
+    
+    #leaderboard ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+    }
+    
+    #leaderboard li {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        margin: 5px 0;
+        transition: background 0.3s;
+    }
+    
+    /* Quiz Section */
+    #quizContainer {
+        flex-grow: 1;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 25px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 74%;
+    }
+    
+    h1 {
+        color: #000;
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    
+    /* Settings section */
+    #settings {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    #settings > div {
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-    #leaderboard {
+    
+    label {
+        font-size: 16px;
+        font-weight: bold;
+        color: #000;
+    }
+    
+    select, input {
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 90%;
+        text-align: center;
+    }
+    
+    /* Buttons */
+    button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 5px;
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+    
+    button:hover {
+        background-color: #218838;
+    }
+    
+    /* Timer */
+    #timer {
+        font-size: 18px;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #000;
+    }
+    
+    /* Progress Bar */
+    .progress-container {
         width: 100%;
+        background-color: #ddd;
+        margin: 20px 0;
+        height: 25px;
+        border-radius: 5px;
+        display: flex;
+        overflow: hidden;
     }
-
-    #settings {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    
+    .progress-bar {
+        flex-grow: 1;
+        height: 100%;
+        border-right: 2px solid #fff;
+        transition: background-color 0.3s;
     }
-
-    #quizContainer {
+    
+    /* Leaderboard Entry Styling */
+    .leaderboard-entry {
+        display: flex;
+        flex-direction: column; /* Two-line format */
+        padding: 8px 12px;
+        border-radius: 5px;
+        background-color: #f9f9f9; /* Uniform background */
+        margin: 5px 0;
+        font-size: 14px; /* Consistent text size */
+        font-weight: normal; /* Remove extra boldness */
+        transition: background 0.3s;
+        text-align: center;
         width: 100%;
+        font-weight: bold;
     }
-    #choicesContainer {
-      display: flex;
-      flex-wrap: wrap;
+    
+    /* Row styling */
+    .leaderboard-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 3px 0;
     }
-    #choicesContainer button {
-      width: 100%;
-      white-space: normal;
+    
+    /* Consistent Text Styling */
+    .leaderboard-entry span {
+        font-size: 14px; /* Uniform font size */
+        color: #333; /* Same color for all text */
+        font-family: Arial, sans-serif; /* Ensure consistent font */
     }
-}
+    
+    /* Problem Display */
+    #problem {
+        font-size: 24px;
+        font-weight: bold;
+        color: #222;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    /* Message & Score */
+    #message,
+    #score {
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        margin-top: 10px;
+    }
+    
+    /* Game Area */
+    #gameArea {
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    #gameArea input {
+        font-size: 18px;
+        padding: 8px;
+        width: 220px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 850px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        #leaderboard {
+            width: 100%;
+        }
+    
+        #settings {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+    
+        #quizContainer {
+            width: 100%;
+            max-width: 100%;
+        }
+        #choicesContainer {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        #choicesContainer button {
+          width: 100%;
+          white-space: normal;
+        }
+    }
   </style>
 </head>
 
@@ -430,13 +432,12 @@ button:hover {
 
       // Get the operation selection:
       operation = document.getElementById("operation").value;
+      // Common settings:
+      let includeNegatives = document.getElementById("includeNegatives").checked;
+      let rangeVal = parseInt(document.getElementById("range").value) || 10;
 
-      // Here you add cases for the advanced math problem types:
       switch (operation) {
         case "wordProblems":
-          // Instead of generating a problem on the fly,
-          // pull a random word problem from preloaded JSON data.
-          // Assume wordProblemsData is a global variable containing the array of problems.
           if (!wordProblemsData || wordProblemsData.length === 0) {
             document.getElementById("problem").textContent = "No word problems available.";
             return;
@@ -448,75 +449,105 @@ button:hover {
           break;
 
         case "linearEquations":
-          // Generate a simple linear equation: ax + b = c.
-          // Choose a nonzero coefficient a and then compute x.
-          let a = Math.floor(Math.random() * 10) + 1;
-          let xSol = Math.floor(Math.random() * 20) - 10;
-          let b = Math.floor(Math.random() * 10) - 5;
-          let c = a * xSol + b;
-          correctAnswer = xSol;
-          document.getElementById("problem").textContent = `Solve for x: ${a}x + ${b} = ${c}`;
+          {
+            let a = Math.floor(Math.random() * rangeVal) + 1; // a from 1 to rangeVal
+            let xSol, b;
+            if (includeNegatives) {
+              xSol = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal; // -rangeVal to rangeVal
+              b = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+            } else {
+              xSol = Math.floor(Math.random() * (rangeVal + 1)); // 0 to rangeVal
+              b = Math.floor(Math.random() * (rangeVal + 1));
+            }
+            let c = a * xSol + b;
+            correctAnswer = xSol;
+            document.getElementById("problem").textContent = `Solve for x: ${a}x + ${b} = ${c}`;
+          }
           break;
 
         case "quadraticEquations":
-          // Generate a quadratic equation: x² + bx + c = 0
-          // For simplicity, choose b and c so that the discriminant is a perfect square.
-          let b2 = Math.floor(Math.random() * 10) - 5;
-          let c2 = Math.floor(Math.random() * 10) - 5;
-          let disc = b2 * b2 - 4 * c2;
-          // Adjust until discriminant is non-negative and a perfect square.
-          while (disc < 0 || Math.sqrt(disc) % 1 !== 0) {
-            b2 = Math.floor(Math.random() * 10) - 5;
-            c2 = Math.floor(Math.random() * 10) - 5;
-            disc = b2 * b2 - 4 * c2;
+          {
+            // Use a smaller max coefficient for quadratic equations.
+            let maxCoef = Math.min(rangeVal, 50);
+            let b2, c2, disc;
+            do {
+              if (includeNegatives) {
+                b2 = Math.floor(Math.random() * (maxCoef + 1)) - Math.floor(maxCoef / 2);
+                c2 = Math.floor(Math.random() * (maxCoef + 1)) - Math.floor(maxCoef / 2);
+              } else {
+                b2 = Math.floor(Math.random() * (maxCoef + 1));
+                c2 = Math.floor(Math.random() * (maxCoef + 1));
+              }
+              disc = b2 * b2 - 4 * c2;
+            } while (disc < 0 || Math.sqrt(disc) % 1 !== 0);
+            let sqrtDisc = Math.sqrt(disc);
+            let sol1 = (-b2 + sqrtDisc) / 2;
+            let sol2 = (-b2 - sqrtDisc) / 2;
+            if (Math.abs(sol1 - sol2) < 1e-9) {
+              correctAnswer = [sol1];
+              document.getElementById("problem").textContent = `Solve for x: x² + ${b2}x + ${c2} = 0`;
+            } else {
+              correctAnswer = [sol1, sol2];
+              document.getElementById("problem").textContent = `Solve for x (enter comma seperated solutions): x² + ${b2}x + ${c2} = 0`;
+            }
           }
-          // Compute the two solutions (we will consider the smaller one as correct for this example)
-          let sol1 = (-b2 + Math.sqrt(disc)) / 2;
-          let sol2 = (-b2 - Math.sqrt(disc)) / 2;
-          // Choose one solution (or you could ask for both)
-          correctAnswer = sol1; // or sol2
-          document.getElementById("problem").textContent = `Solve for x (choose one solution): x² + ${b2}x + ${c2} = 0`;
           break;
 
         case "complexNumbers":
-          // Generate a problem with complex numbers.
-          // For example: (a + bi) + (c + di) = ? 
-          let a1 = Math.floor(Math.random() * 10);
-          let bi1 = Math.floor(Math.random() * 10);
-          let a2 = Math.floor(Math.random() * 10);
-          let bi2 = Math.floor(Math.random() * 10);
-          // For addition, the answer is: (a1+a2) + (b1+b2)i
-          correctAnswer = { real: a1 + a2, imaginary: bi1 + bi2 };
-          document.getElementById("problem").textContent = `(${a1} + ${bi1}i) + (${a2} + ${bi2}i) = ? (Enter as "real,imaginary")`;
+          {
+            let a1, bi1, a2, bi2;
+            if (includeNegatives) {
+              a1 = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+              bi1 = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+              a2 = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+              bi2 = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+            } else {
+              a1 = Math.floor(Math.random() * (rangeVal + 1));
+              bi1 = Math.floor(Math.random() * (rangeVal + 1));
+              a2 = Math.floor(Math.random() * (rangeVal + 1));
+              bi2 = Math.floor(Math.random() * (rangeVal + 1));
+            }
+            correctAnswer = { real: a1 + a2, imaginary: bi1 + bi2 };
+            document.getElementById("problem").textContent = `(${a1} + ${bi1}i) + (${a2} + ${bi2}i) = ? (Enter as "real,imaginary")`;
+          }
           break;
 
         case "integrals":
-          // Generate a basic integral problem.
-          // For example: ∫ x dx from 0 to N, which is N^2/2.
-          let N = Math.floor(Math.random() * 10) + 1;
-          correctAnswer = (N * N) / 2;
-          document.getElementById("problem").textContent = `Compute ∫ from 0 to ${N} of x dx.`;
+          {
+            let N;
+            if (includeNegatives) {
+              do {
+                N = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+              } while (N === 0);
+            } else {
+              N = Math.floor(Math.random() * rangeVal) + 1;
+            }
+            // Calculate the integral ∫ x dx from 0 to N.
+            correctAnswer = (N > 0) ? (N * N) / 2 : - (N * N) / 2;
+            document.getElementById("problem").textContent = `Compute ∫ from 0 to ${N} of x dx.`;
+          }
           break;
 
         case "derivatives":
-          // Generate a basic derivative problem.
-          // For example: d/dx (ax^2) = 2ax.
-          let aCoeff = Math.floor(Math.random() * 10) + 1;
-          let xValue = Math.floor(Math.random() * 10);
-          correctAnswer = 2 * aCoeff * xValue;
-          document.getElementById("problem").textContent = `Find the derivative of ${aCoeff}x² at x = ${xValue}.`;
+          {
+            let aCoeff = Math.floor(Math.random() * rangeVal) + 1;
+            let xValue;
+            if (includeNegatives) {
+              xValue = Math.floor(Math.random() * (2 * rangeVal + 1)) - rangeVal;
+            } else {
+              xValue = Math.floor(Math.random() * (rangeVal + 1));
+            }
+            correctAnswer = 2 * aCoeff * xValue;
+            document.getElementById("problem").textContent = `Find the derivative of ${aCoeff}x² at x = ${xValue}.`;
+          }
           break;
 
         default:
-          // You can default to one of the types if needed.
           document.getElementById("problem").textContent = "Invalid operation selected.";
           return;
       }
 
       // Set up the answer input area.
-      // For problems with a single answer (all of the above except maybe complex numbers),
-      // you can use the singleAnswerContainer. For complex numbers, you might want to
-      // instruct the user to enter two comma-separated numbers.
       document.getElementById("singleAnswerContainer").style.display = "block";
       document.getElementById("divisionAnswerContainer").style.display = "none";
       document.getElementById("answer").value = "";
@@ -528,16 +559,14 @@ button:hover {
       if (!acceptingAnswers) return;
       acceptingAnswers = false;
 
-      let userAnswer;
+      // Handling for complex numbers separately.
       if (operation === "complexNumbers") {
-        // Expect the answer in the format "real,imaginary"
-        userAnswer = document.getElementById("answer").value.trim().split(",");
+        let userAnswer = document.getElementById("answer").value.trim().split(",");
         if (userAnswer.length !== 2) {
           document.getElementById("message").textContent = "Enter two numbers separated by a comma.";
           acceptingAnswers = true;
           return;
         }
-        // Parse both parts
         userAnswer = { real: parseFloat(userAnswer[0]), imaginary: parseFloat(userAnswer[1]) };
         if (
           userAnswer.real === correctAnswer.real &&
@@ -550,9 +579,37 @@ button:hover {
           document.getElementById("message").textContent = "Try again!";
           progressBar[currentQuestion].style.backgroundColor = "red";
         }
-      } else {
-        // For all other cases assume a single numeric answer.
-        userAnswer = document.getElementById("answer").value.trim();
+      } 
+      // Handling for multiple solutions (e.g., quadratic equations)
+      else if (Array.isArray(correctAnswer)) {
+        let userInput = document.getElementById("answer").value.trim();
+        let userAnswers = userInput.split(",").map(s => parseFloat(s.trim())).filter(s => !isNaN(s));
+        if (userAnswers.length !== correctAnswer.length) {
+          document.getElementById("message").textContent = "Enter all solutions separated by commas.";
+          acceptingAnswers = true;
+          return;
+        }
+        let sortedUser = userAnswers.slice().sort((a, b) => a - b);
+        let sortedCorrect = correctAnswer.slice().sort((a, b) => a - b);
+        let isCorrect = true;
+        for (let i = 0; i < sortedCorrect.length; i++) {
+          if (Math.abs(sortedUser[i] - sortedCorrect[i]) > 1e-9) {
+            isCorrect = false;
+            break;
+          }
+        }
+        if (isCorrect) {
+          document.getElementById("message").textContent = "Correct!";
+          progressBar[currentQuestion].style.backgroundColor = "green";
+          correctCount++;
+        } else {
+          document.getElementById("message").textContent = "Try again!";
+          progressBar[currentQuestion].style.backgroundColor = "red";
+        }
+      } 
+      // Handling for single answer problems.
+      else {
+        let userAnswer = document.getElementById("answer").value.trim();
         if (parseFloat(userAnswer) === correctAnswer) {
           document.getElementById("message").textContent = "Correct!";
           progressBar[currentQuestion].style.backgroundColor = "green";
@@ -588,13 +645,10 @@ button:hover {
 
     function updateLeaderboard() {
         let leaderboardList = document.getElementById("leaderboardList");
-        leaderboardList.innerHTML = ""; // Clear existing entries
-
+        leaderboardList.innerHTML = "";
         leaderboard.forEach((entry, index) => {
             let li = document.createElement("li");
-            li.className = "leaderboard-entry"; // Add a class for styling
-
-            // Two-line format with uniform styling
+            li.className = "leaderboard-entry";
             li.innerHTML = `
                 <div class="leaderboard-row">
                     <span class="attempt">Attempt ${index + 1}: ${entry.operation}</span>
@@ -605,7 +659,6 @@ button:hover {
                     <span class="time">${entry.time} sec</span>
                 </div>
             `;
-
             leaderboardList.appendChild(li);
         });
     }
