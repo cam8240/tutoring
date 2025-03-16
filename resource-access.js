@@ -1,1 +1,49 @@
-const _0x2be337=_0x3f82;function _0x4ebe(){const _0xd04edd=['href','6122xHrkuu','362EzRtpU','block','querySelector','.error','4429170wQSzNr','display','40okRnxM','https://www.youtube.com/watch?v=o3oQrrL9AIw','1199403IyMKgO','inline-block','code','10YRRHgF','3100977rPJRGc','getElementById','none','443769atwvuq','button','8bFwvbG','error','files/addition_worksheet.pdf','input','719327RnFUnq','1165242erDwnk','parentElement','style'];_0x4ebe=function(){return _0xd04edd;};return _0x4ebe();}(function(_0x31535e,_0x23f5fa){const _0x4087c7=_0x3f82,_0x1c003b=_0x31535e();while(!![]){try{const _0x4cf13a=parseInt(_0x4087c7(0xfb))/0x1*(-parseInt(_0x4087c7(0xfc))/0x2)+-parseInt(_0x4087c7(0x10b))/0x3*(parseInt(_0x4087c7(0xf2))/0x4)+parseInt(_0x4087c7(0x100))/0x5+parseInt(_0x4087c7(0xf7))/0x6+-parseInt(_0x4087c7(0xf6))/0x7*(-parseInt(_0x4087c7(0x102))/0x8)+-parseInt(_0x4087c7(0x104))/0x9*(-parseInt(_0x4087c7(0x107))/0xa)+parseInt(_0x4087c7(0x108))/0xb;if(_0x4cf13a===_0x23f5fa)break;else _0x1c003b['push'](_0x1c003b['shift']());}catch(_0x15badb){_0x1c003b['push'](_0x1c003b['shift']());}}}(_0x4ebe,0x93ba4));function encodeCode(_0x21a7da){return btoa(_0x21a7da);}const validCodes={'U0cxMjNB':'files/study_guide.pdf','QUxHNTQ2Qg==':_0x2be337(0x103),'UFc3ODlD':_0x2be337(0xf4)};function _0x3f82(_0xb58968,_0x5e2923){const _0x4ebe70=_0x4ebe();return _0x3f82=function(_0x3f82b6,_0x28fd29){_0x3f82b6=_0x3f82b6-0xf2;let _0x4d68fb=_0x4ebe70[_0x3f82b6];return _0x4d68fb;},_0x3f82(_0xb58968,_0x5e2923);}function verifyCode(_0x1dac33,_0x3347f4){const _0x388ddc=_0x2be337,_0xae6fbf=document['getElementById'](_0x1dac33)['value']['trim'](),_0x4b2370=encodeCode(_0xae6fbf);if(validCodes[_0x4b2370]){const _0x8cb17d=document['getElementById'](_0x1dac33)[_0x388ddc(0xf8)];_0x8cb17d[_0x388ddc(0xfe)](_0x388ddc(0xf5))[_0x388ddc(0xf9)][_0x388ddc(0x101)]=_0x388ddc(0x10a),_0x8cb17d[_0x388ddc(0xfe)](_0x388ddc(0x10c))[_0x388ddc(0xf9)]['display']=_0x388ddc(0x10a);const _0x3c59fc=_0x8cb17d['querySelector'](_0x388ddc(0xff));_0x3c59fc&&(_0x3c59fc[_0x388ddc(0xf9)]['display']=_0x388ddc(0x10a));const _0x47d016=document[_0x388ddc(0x109)](_0x3347f4);_0x47d016[_0x388ddc(0xfa)]=validCodes[_0x4b2370],_0x47d016[_0x388ddc(0xf9)][_0x388ddc(0x101)]=_0x388ddc(0x105);}else document[_0x388ddc(0x109)](_0x388ddc(0xf3)+_0x1dac33['replace'](_0x388ddc(0x106),''))[_0x388ddc(0xf9)][_0x388ddc(0x101)]=_0x388ddc(0xfd);}
+const LAMBDA_API_URL = "https://giw16ldj9k.execute-api.us-east-2.amazonaws.com/getSignedUrl"; // Replace with your actual API Gateway URL
+
+async function verifyCode(inputId, linkId, expectedFile, unlockSectionId) {
+    const userCode = document.getElementById(inputId).value.trim();
+    const errorElement = document.getElementById(`error${inputId.slice(-1)}`);
+    const linkElement = document.getElementById(linkId);
+    const unlockSection = document.getElementById(unlockSectionId);
+
+    if (!userCode) {
+        errorElement.style.display = "block";
+        return;
+    }
+
+    console.log("Sending code:", userCode);
+    console.log("Expected file:", expectedFile);
+
+    // Send the access code along with the expected file name
+    const requestBody = JSON.stringify({
+        accessCode: userCode,
+        expectedFile: expectedFile
+    });
+
+    console.log("Request body:", requestBody);
+
+    try {
+        const response = await fetch(LAMBDA_API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: requestBody
+        });
+
+        console.log("Response status:", response.status);
+
+        const data = await response.json();
+        console.log("Response body:", data);
+
+        if (response.ok && data.url) {
+            errorElement.style.display = "none";
+            unlockSection.style.display = "none";
+            linkElement.href = data.url;
+            linkElement.style.display = "inline-block";
+        } else {
+            throw new Error("Invalid access code for this resource");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        errorElement.style.display = "block";
+    }
+}
