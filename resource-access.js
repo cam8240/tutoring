@@ -36,7 +36,12 @@ async function verifyCode(inputId, linkId, expectedFile, unlockSectionId) {
 
         if (response.ok && data.url) {
             errorElement.style.display = "none";
-            unlockSection.style.display = "none";
+
+            // Hide the unlock section if it exists
+            if (unlockSection) {
+                unlockSection.style.display = "none";
+            }
+
             linkElement.href = data.url;
             linkElement.style.display = "inline-block";
         } else {
@@ -58,7 +63,11 @@ function verifyFreeCode() {
 
     if (userCode === correctCode) {
         errorElement.style.display = "none";
-        unlockSection.style.display = "none";
+
+        if (unlockSection) {
+            unlockSection.style.display = "none";
+        }
+
         linkElement.style.display = "inline-block";
     } else {
         errorElement.style.display = "block";
@@ -77,3 +86,10 @@ function handleFreeEnter(event) {
         verifyFreeCode();
     }
 }
+
+// Ensure Enter key works for all input fields dynamically
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("code1")?.addEventListener("keypress", (event) => handleEnter(event, "code1", "link1", "study_guide.pdf", "unlock-section1"));
+    document.getElementById("code2")?.addEventListener("keypress", (event) => handleEnter(event, "code2", "link2", "addition_worksheet.pdf", "unlock-section2"));
+    document.getElementById("code")?.addEventListener("keypress", handleFreeEnter);
+});
