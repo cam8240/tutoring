@@ -90,7 +90,7 @@
         <h3>Study Guide: Addition ($5)</h3>
         <p>A comprehensive study guide covering key math concepts.</p>
         <div id="unlock-section1">
-            <input type="text" id="code1" placeholder="Enter Code">
+            <input type="text" id="code1" placeholder="Enter Code" onkeypress="handleEnter(event, 'code1', 'link1', 'study_guide.pdf', 'unlock-section1')">
             <button onclick="verifyCode('code1', 'link1', 'study_guide.pdf', 'unlock-section1')">Unlock</button>
             <p class="error" id="error1">Incorrect Code.</p>
         </div>
@@ -99,42 +99,22 @@
       
       <!-- Video Tutorials -->
       <div class="resource-item">
-        <h3>Video Tutorial: Addition (FREE CODE: ALG546B)</h3>
+        <h3>Video Tutorial: Addition (FREE CODE: FREEVIDEO)</h3>
         <p>Watch our video tutorials on various math topics.</p>
         <div id="unlock-section2">
-            <input type="text" id="code" placeholder="Enter Code">
+            <input type="text" id="code" placeholder="Enter Code" onkeypress="handleFreeEnter(event)">
             <button onclick="verifyFreeCode()">Unlock</button>
             <p class="error" id="error">Incorrect Code.</p>
         </div>
         <a id="link" class="download-link" href="https://www.youtube.com/watch?v=o3oQrrL9AIw" target="_blank">Open Video</a>
-      </div>
-    
-      <script>
-        function verifyFreeCode() {
-            const userCode = document.getElementById("code").value.trim();
-            const errorElement = document.getElementById("error");
-            const linkElement = document.getElementById("link");
-            const unlockSection = document.getElementById("unlock-section2"); 
-
-            const correctCode = "ALG546B";
-
-            if (userCode === correctCode) {
-                errorElement.style.display = "none";
-                unlockSection.style.display = "none"; // Hide input & button
-                linkElement.style.display = "inline-block"; // Show link
-            } else {
-                errorElement.style.display = "block";
-                linkElement.style.display = "none";
-            }
-        }
-      </script>    
+      </div>  
       
       <!-- Practice Worksheet -->
       <div class="resource-item">
         <h3>Practice Worksheet: Addition ($5)</h3>
         <p>Download additional exercises to sharpen your skills.</p>
         <div id="unlock-section3">
-            <input type="text" id="code2" placeholder="Enter Code">
+            <input type="text" id="code2" placeholder="Enter Code" onkeypress="handleEnter(event, 'code2', 'link2', 'addition_worksheet.pdf', 'unlock-section3')">
             <button onclick="verifyCode('code2', 'link2', 'addition_worksheet.pdf', 'unlock-section3')">Unlock</button>
             <p class="error" id="error2">Incorrect Code.</p>
         </div>

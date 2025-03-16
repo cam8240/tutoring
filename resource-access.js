@@ -47,3 +47,33 @@ async function verifyCode(inputId, linkId, expectedFile, unlockSectionId) {
         errorElement.style.display = "block";
     }
 }
+
+function verifyFreeCode() {
+    const userCode = document.getElementById("code").value.trim();
+    const errorElement = document.getElementById("error");
+    const linkElement = document.getElementById("link");
+    const unlockSection = document.getElementById("unlock-section2"); 
+
+    const correctCode = "FREEVIDEO";
+
+    if (userCode === correctCode) {
+        errorElement.style.display = "none";
+        unlockSection.style.display = "none";
+        linkElement.style.display = "inline-block";
+    } else {
+        errorElement.style.display = "block";
+        linkElement.style.display = "none";
+    }
+}
+
+function handleEnter(event, inputId, linkId, fileType, unlockSectionId) {
+    if (event.key === "Enter") {
+        verifyCode(inputId, linkId, fileType, unlockSectionId);
+    }
+}
+
+function handleFreeEnter(event) {
+    if (event.key === "Enter") {
+        verifyFreeCode();
+    }
+}
