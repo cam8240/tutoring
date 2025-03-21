@@ -90,6 +90,6 @@ function handleFreeEnter(event) {
 // Ensure Enter key works for all input fields dynamically
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("code1")?.addEventListener("keypress", (event) => handleEnter(event, "code1", "link1", "study_guide.pdf", "unlock-section1"));
-    document.getElementById("code2")?.addEventListener("keypress", (event) => handleEnter(event, "code2", "link2", "addition_worksheet.pdf", "unlock-section2"));
+    document.getElementById("code2")?.addEventListener("keypress", (event) => handleEnter(event, "code2", "link2", "addition_worksheet.pdf", "unlock-section3"));
     document.getElementById("code")?.addEventListener("keypress", handleFreeEnter);
 });
