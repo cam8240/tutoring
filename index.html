@@ -38,7 +38,7 @@
       font-size: 1em;
       margin: 10px 0;
     }
-    
+
     /* Generic Hero Styling */
     .hero {
       background-size: cover;
@@ -47,7 +47,7 @@
       position: relative;
       padding: 60px 20px;
       text-align: center;
-      color: white; /* Adjust text color if necessary */
+      color: white;
       width: 100%;
     }
 
@@ -58,7 +58,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 128, 0, 0.6); /* Green overlay with transparency */
+      background: rgba(0, 128, 0, 0.6);
       z-index: 1;
       border-radius: 5px;
     }
@@ -86,29 +86,30 @@
     }
 
     #chat-frame-container {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: min(380px, 95vw);
-  height: min(480px, 70vh);
-  max-height: calc(100vh - 80px);
-  min-height: 300px;
-  border: 2px solid #28a745;
-  border-radius: 12px;
-  overflow: hidden;
-  z-index: 999;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  background: white;
-  transform: translateY(100%);
-  opacity: 0;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-  pointer-events: none;
-}
-#chat-frame-container.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: min(380px, 95vw);
+      height: min(480px, 70vh);
+      max-height: calc(100vh - 80px);
+      min-height: 300px;
+      border: 2px solid #28a745;
+      border-radius: 12px;
+      overflow: hidden;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      background: white;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+      pointer-events: none;
+    }
+
+    #chat-frame-container.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     #chat-frame {
       width: 100%;
@@ -117,20 +118,19 @@
     }
 
     @media (max-width: 425px) {
-  #chat-frame-container {
-    left: 20px;
-    right: 20px;
-    width: auto;
-    max-width: none;
-  }
-}
-
+      #chat-frame-container {
+        left: 20px;
+        right: 20px;
+        width: auto;
+        max-width: none;
+      }
+    }
   </style>
 </head>
 
 <body class="home">
   <div id="header"></div>
-  
+
   <main class="container">
     <!-- Hero Section with different images -->
     <section class="hero" style="background-image: url('images/school-background.png');">
@@ -150,9 +150,8 @@
       <p>Unlock unlimited premium content and more.</p>
       <a>Coming Soon!</a>
     </section>
-      
   </main>
-  
+
   <div id="footer"></div>
 
   <!-- Floating Chat Button -->
@@ -162,11 +161,23 @@
 
   <!-- Chat Frame Container -->
   <div id="chat-frame-container">
-    <iframe 
-      src="https://elevate-learning.streamlit.app/" 
-      id="chat-frame" 
-      frameborder="0">
-    </iframe>
+    <div style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: white;
+      font-family: sans-serif;
+    ">
+      <a href="https://elevate-learning.streamlit.app/" target="_blank" style="
+        color: #28a745;
+        font-size: 1.2em;
+        text-decoration: none;
+        font-weight: bold;
+      ">
+        Start chat
+      </a>
+    </div>
   </div>
 
   <!-- Toggle Script -->
@@ -176,7 +187,7 @@
       chat.classList.toggle("open");
     }
   </script>
-  
+
   <script defer src="script.js"></script>
 </body>
 </html>
