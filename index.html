@@ -86,36 +86,45 @@
     }
 
     #chat-frame-container {
-      position: fixed;
-      bottom: 80px;
-      right: 20px;
-      width: min(380px, 95vw);
-      height: min(480px, 70vh);
-      max-height: calc(100vh - 80px);
-      min-height: 300px;
-      border: 2px solid #28a745;
-      border-radius: 12px;
-      overflow: hidden;
-      z-index: 999;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      background: white;
-      transform: translateY(100%);
-      opacity: 0;
-      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-      pointer-events: none;
-    }
-
-    #chat-frame-container.open {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: min(380px, 95vw);
+  height: min(480px, 70vh);
+  max-height: calc(100vh - 80px);
+  min-height: 300px;
+  border: 2px solid #28a745;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 999;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: white;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  pointer-events: none;
+}
+#chat-frame-container.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
 
     #chat-frame {
       width: 100%;
       height: 100%;
       border: none;
     }
+
+    @media (max-width: 425px) {
+  #chat-frame-container {
+    left: 20px;
+    right: 20px;
+    width: auto;
+    max-width: none;
+  }
+}
+
   </style>
 </head>
 
