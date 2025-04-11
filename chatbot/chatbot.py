@@ -2,8 +2,8 @@ import streamlit as st
 from knowledge_base import knowledge_base
 
 # --- Page Setup ---
-st.set_page_config(page_title="Smart Rule-Based Chatbot", layout="centered")
-st.title("Smart Rule-Based Chatbot")
+st.set_page_config(page_title="Tutoring Assistant", layout="centered")
+st.title("Tutoring Assistant")
 
 # --- Chat History ---
 if "chat_history" not in st.session_state:
