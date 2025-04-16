@@ -8,6 +8,15 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     /* Styling for the Quizzes Section */
+    .quizzes-page {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
     .quizzes {
       margin: 40px 0;
       text-align: center;
@@ -87,48 +96,50 @@
   <script defer src="script.js"></script>
 
   <main class="container">
-    <h1>Quizzes</h1>
+    <div class="quizzes-page">
+      <h1>Quizzes</h1>
 
-    <!-- Search Box -->
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search" onkeyup="filterQuizzes()">
-    </div>
-
-    <!-- Quizzes Section -->
-    <section class="quizzes">
-      <div class="quizzes-container">
-        <div class="quiz-box">
-          <h3>Basic Math Quiz</h3>
-          <p>Challenge your math skills with basic arithmetic problems.</p>
-          <a href="math-quiz-basic.html">Start Basic Math Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>Advanced Math Quiz</h3>
-          <p>Test your knowledge of various scientific principles.</p>
-          <a href="math-quiz-adv.html">Start Advanced Math Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>Engineering Quiz</h3>
-          <p>Explore the world through geography questions.</p>
-          <a href="engineering-quiz.html">Start Engineering Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>Science Quiz</h3>
-          <p>Test your knowledge of various scientific principles.</p>
-          <a href="science-quiz.html">Start Science Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>Vocabulary Quiz</h3>
-          <p>Enhance your language skills with a fun vocabulary test.</p>
-          <a href="vocabulary-quiz.html">Start Vocabulary Quiz</a>
-        </div>
-        <div class="quiz-box">
-          <h3>History Quiz</h3>
-          <p>See how well you know historical events and famous figures.</p>
-          <a href="history-quiz.html">Start History Quiz</a>
-        </div>
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search" onkeyup="filterQuizzes()">
       </div>
-    </section>
+
+      <!-- Quizzes Section -->
+      <section class="quizzes">
+        <div class="quizzes-container">
+          <div class="quiz-box">
+            <h3>Basic Math Quiz</h3>
+            <p>Challenge your math skills with basic arithmetic problems.</p>
+            <a href="math-quiz-basic.html">Start Basic Math Quiz</a>
+          </div>
+          <div class="quiz-box">
+            <h3>Advanced Math Quiz</h3>
+            <p>Test your knowledge of various scientific principles.</p>
+            <a href="math-quiz-adv.html">Start Advanced Math Quiz</a>
+          </div>
+          <div class="quiz-box">
+            <h3>Engineering Quiz</h3>
+            <p>Explore the world through geography questions.</p>
+            <a href="engineering-quiz.html">Start Engineering Quiz</a>
+          </div>
+          <div class="quiz-box">
+            <h3>Science Quiz</h3>
+            <p>Test your knowledge of various scientific principles.</p>
+            <a href="science-quiz.html">Start Science Quiz</a>
+          </div>
+          <div class="quiz-box">
+            <h3>Vocabulary Quiz</h3>
+            <p>Enhance your language skills with a fun vocabulary test.</p>
+            <a href="vocabulary-quiz.html">Start Vocabulary Quiz</a>
+          </div>
+          <div class="quiz-box">
+            <h3>History Quiz</h3>
+            <p>See how well you know historical events and famous figures.</p>
+            <a href="history-quiz.html">Start History Quiz</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <div id="footer"></div>

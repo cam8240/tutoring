@@ -10,6 +10,15 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     /* Additional styling for the Resources page */
+    .resources-page {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
     .resources {
       padding: 40px 20px;
     }
@@ -83,50 +92,52 @@
   <div id="header"></div>
   
   <main class="container">
-    <h1>Addition Resources</h1>
-    <div class="resources">
-      <!-- Study Guide -->
-      <div class="resource-item">
-        <h3>Study Guide: Addition ($5)</h3>
-        <p>A comprehensive study guide covering key math concepts.</p>
-        <div id="unlock-section1">
-            <input type="text" id="code1" placeholder="Enter Code" onkeypress="handleEnter(event, 'code1', 'link1', 'study_guide.pdf', 'unlock-section1')">
-            <button onclick="verifyCode('code1', 'link1', 'study_guide.pdf', 'unlock-section1')">Unlock</button>
-            <p class="error" id="error1">Incorrect Code.</p>
+    <div class="resources-page">
+      <h1>Addition Resources</h1>
+      <div class="resources">
+        <!-- Study Guide -->
+        <div class="resource-item">
+          <h3>Study Guide: Addition ($5)</h3>
+          <p>A comprehensive study guide covering key math concepts.</p>
+          <div id="unlock-section1">
+              <input type="text" id="code1" placeholder="Enter Code" onkeypress="handleEnter(event, 'code1', 'link1', 'study_guide.pdf', 'unlock-section1')">
+              <button onclick="verifyCode('code1', 'link1', 'study_guide.pdf', 'unlock-section1')">Unlock</button>
+              <p class="error" id="error1">Incorrect Code.</p>
+          </div>
+          <a id="link1" class="download-link" href="#" download>Download PDF</a>
         </div>
-        <a id="link1" class="download-link" href="#" download>Download PDF</a>
-      </div>
-      
-      <!-- Video Tutorials -->
-      <div class="resource-item">
-        <h3>Video Tutorial: Addition (FREE CODE: FREEVIDEO)</h3>
-        <p>Watch our video tutorials on various math topics.</p>
-        <div id="unlock-section2">
-            <input type="text" id="code" placeholder="Enter Code" onkeypress="handleFreeEnter(event)">
-            <button onclick="verifyFreeCode()">Unlock</button>
-            <p class="error" id="error">Incorrect Code.</p>
+        
+        <!-- Video Tutorials -->
+        <div class="resource-item">
+          <h3>Video Tutorial: Addition (FREE CODE: FREEVIDEO)</h3>
+          <p>Watch our video tutorials on various math topics.</p>
+          <div id="unlock-section2">
+              <input type="text" id="code" placeholder="Enter Code" onkeypress="handleFreeEnter(event)">
+              <button onclick="verifyFreeCode()">Unlock</button>
+              <p class="error" id="error">Incorrect Code.</p>
+          </div>
+          <a id="link" class="download-link" href="https://www.youtube.com/watch?v=o3oQrrL9AIw" target="_blank">Open Video</a>
+        </div>  
+        
+        <!-- Practice Worksheet -->
+        <div class="resource-item">
+          <h3>Practice Worksheet: Addition ($5)</h3>
+          <p>Download additional exercises to sharpen your skills.</p>
+          <div id="unlock-section3">
+              <input type="text" id="code2" placeholder="Enter Code" onkeypress="handleEnter(event, 'code2', 'link2', 'addition_worksheet.pdf', 'unlock-section3')">
+              <button onclick="verifyCode('code2', 'link2', 'addition_worksheet.pdf', 'unlock-section3')">Unlock</button>
+              <p class="error" id="error2">Incorrect Code.</p>
+          </div>
+          <a id="link2" class="download-link" href="#" download>Download PDF</a>
         </div>
-        <a id="link" class="download-link" href="https://www.youtube.com/watch?v=o3oQrrL9AIw" target="_blank">Open Video</a>
-      </div>  
-      
-      <!-- Practice Worksheet -->
-      <div class="resource-item">
-        <h3>Practice Worksheet: Addition ($5)</h3>
-        <p>Download additional exercises to sharpen your skills.</p>
-        <div id="unlock-section3">
-            <input type="text" id="code2" placeholder="Enter Code" onkeypress="handleEnter(event, 'code2', 'link2', 'addition_worksheet.pdf', 'unlock-section3')">
-            <button onclick="verifyCode('code2', 'link2', 'addition_worksheet.pdf', 'unlock-section3')">Unlock</button>
-            <p class="error" id="error2">Incorrect Code.</p>
-        </div>
-        <a id="link2" class="download-link" href="#" download>Download PDF</a>
-      </div>
 
-      <div class="resource-item" style="margin-top: 50px;">
-        <h3>Need Access Codes?</h3>
-        <p>To purchase access codes, please email:</p>
-        <p><a href="mailto:cam8240@gmail.com" style="color: #28a745; font-weight: bold;">cam8240@gmail.com</a></p>
-      </div> 
-    </div>   
+        <div class="resource-item" style="margin-top: 50px;">
+          <h3>Need Access Codes?</h3>
+          <p>To purchase access codes, please email:</p>
+          <p><a href="mailto:cam8240@gmail.com" style="color: #28a745; font-weight: bold;">cam8240@gmail.com</a></p>
+        </div> 
+      </div>   
+    </div>
   </main>
   
   <!-- Shared footer loaded dynamically -->

@@ -8,6 +8,15 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     /* Styling for the Resources Section */
+    .resources-page {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
     .resources {
       margin: 40px 0;
       text-align: center;
@@ -106,114 +115,116 @@
   <script defer src="script.js"></script>
 
   <main class="container">
-    <h1>Resources</h1>
+    <div class="resources-page">
+      <h1>Resources</h1>
 
-    <!-- Search and Category Filter -->
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search" onkeyup="filterResources()">
-      <select id="categoryFilter" onchange="filterResources()">
-        <option value="all">All</option>
-        <option value="prek">Pre-K</option>
-        <option value="k12">K-12</option>
-        <option value="college">College</option>
-      </select>
-    </div>
-
-    <!-- Resources Section -->
-    <section class="resources">
-      <div class="resources-container">
-        <div class="resource-box" data-category="k12">
-          <h3>Addition</h3>
-          <p>Study guides, videos, and practice problems for addition skills.</p>
-          <a href="resources-addition.html">View Addition Resources</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Subtraction</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Multiplication</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Division</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Algebra</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Algebra II</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Geometry</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Trigonometry</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Calc I</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Calc II</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Calc III</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="k12">
-          <h3>Linear Algebra</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="college">
-          <h3>SAT</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="college">
-          <h3>ACT</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="college">
-          <h3>Engineering</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="college">
-          <h3>Resume</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="college">
-          <h3>Interview</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
-        <div class="resource-box" data-category="college">
-          <h3>College App</h3>
-          <p>Study guides, videos, and practice problems.</p>
-          <a>Coming Soon!</a>
-        </div>
+      <!-- Search and Category Filter -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search" onkeyup="filterResources()">
+        <select id="categoryFilter" onchange="filterResources()">
+          <option value="all">All</option>
+          <option value="prek">Pre-K</option>
+          <option value="k12">K-12</option>
+          <option value="college">College</option>
+        </select>
       </div>
-    </section>
+
+      <!-- Resources Section -->
+      <section class="resources">
+        <div class="resources-container">
+          <div class="resource-box" data-category="k12">
+            <h3>Addition</h3>
+            <p>Study guides, videos, and practice problems for addition skills.</p>
+            <a href="resources-addition.html">View Addition Resources</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Subtraction</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Multiplication</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Division</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Algebra</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Algebra II</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Geometry</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Trigonometry</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Calc I</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Calc II</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Calc III</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="k12">
+            <h3>Linear Algebra</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="college">
+            <h3>SAT</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="college">
+            <h3>ACT</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="college">
+            <h3>Engineering</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="college">
+            <h3>Resume</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="college">
+            <h3>Interview</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+          <div class="resource-box" data-category="college">
+            <h3>College App</h3>
+            <p>Study guides, videos, and practice problems.</p>
+            <a>Coming Soon!</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <div id="footer"></div>
