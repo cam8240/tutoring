@@ -65,6 +65,10 @@
       max-width: 74%;
     }
 
+    #submitButton {
+      margin: 10px 0;
+    }
+
     h1 {
       color: #000;
       font-size: 28px;
@@ -251,6 +255,7 @@
     <div id="leaderboard">
       <h2>Scoreboard</h2>
       <ul id="leaderboardList"></ul>
+      <button id="resetLeaderboardButton" onclick="resetLeaderboard()" style="margin-top: 15px;">Reset Leaderboard</button>
     </div>
 
     <!-- Quiz Section -->
@@ -531,6 +536,12 @@
         `;
         leaderboardList.appendChild(li);
       });
+    }
+
+    function resetLeaderboard() {
+      localStorage.removeItem('leaderboard');
+      leaderboard = [];
+      updateLeaderboard();
     }
 
     // Initialize the game on page load
