@@ -8,240 +8,203 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
   <style>
     /* The inline styles below are your original quiz page styles */
-/* Global Styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-/* Container layout */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    gap: 20px;
-}
-
-/* Leaderboard Styling */
-#leaderboard {
-    width: 280px;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-#leaderboard h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #000;
-    border-bottom: 2px solid #000;
-    padding-bottom: 5px;
-}
-
-#leaderboard ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-#leaderboard li {
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-    margin: 5px 0;
-    transition: background 0.3s;
-}
-
-/* Quiz Section */
-#quizContainer {
-    flex-grow: 1;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 74%;
-}
-
-h1 {
-    color: #000;
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
-/* Settings section */
-#settings {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#settings > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label {
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-}
-
-select, input {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 90%;
-    text-align: center;
-}
-
-/* Buttons */
-button {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-/* Timer */
-#timer {
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #000;
-}
-
-/* Progress Bar */
-.progress-container {
-    width: 100%;
-    background-color: #ddd;
-    margin: 20px 0;
-    height: 25px;
-    border-radius: 5px;
-    display: flex;
-    overflow: hidden;
-}
-
-.progress-bar {
-    flex-grow: 1;
-    height: 100%;
-    border-right: 2px solid #fff;
-    transition: background-color 0.3s;
-}
-
-/* Leaderboard Entry Styling */
-.leaderboard-entry {
-    display: flex;
-    flex-direction: column; /* Two-line format */
-    padding: 8px 12px;
-    border-radius: 5px;
-    background-color: #f9f9f9; /* Uniform background */
-    margin: 5px 0;
-    font-size: 14px; /* Consistent text size */
-    font-weight: normal; /* Remove extra boldness */
-    transition: background 0.3s;
-    text-align: center;
-    width: 100%;
-    font-weight: bold;
-}
-
-/* Row styling */
-.leaderboard-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 3px 0;
-}
-
-/* Consistent Text Styling */
-.leaderboard-entry span {
-    font-size: 14px; /* Uniform font size */
-    color: #333; /* Same color for all text */
-    font-family: Arial, sans-serif; /* Ensure consistent font */
-}
-
-/* Problem Display */
-#problem {
-    font-size: 24px;
-    font-weight: bold;
-    color: #222;
-    margin: 20px 0;
-    text-align: center;
-}
-
-/* Message & Score */
-#message,
-#score {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 10px;
-}
-
-/* Game Area */
-#gameArea {
-    text-align: center;
-    margin-top: 15px;
-}
-
-#gameArea input {
-    font-size: 18px;
-    padding: 8px;
-    width: 220px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 850px) {
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    /* Container layout */
     .container {
+        display: flex;
+        max-width: 1200px;
+        gap: 20px;
+    }
+    /* Leaderboard Styling */
+    #leaderboard {
+      width: 280px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    #leaderboard h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #000;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
+    }
+    #leaderboard ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    #leaderboard li {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+      margin: 5px 0;
+      transition: background 0.3s;
+    }
+    /* Quiz Section */
+    #quizContainer {
+      flex-grow: 1;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 25px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 74%;
+    }
+    h1 {
+      color: #000;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    /* Settings section */
+    #settings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #settings > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+    }
+    select, input {
+      font-size: 16px;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 90%;
+      text-align: center;
+    }
+    /* Buttons */
+    button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    /* Timer */
+    #timer {
+      font-size: 18px;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #000;
+    }
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      background-color: #ddd;
+      margin: 20px 0;
+      height: 25px;
+      border-radius: 5px;
+      display: flex;
+      overflow: hidden;
+    }
+    .progress-bar {
+      flex-grow: 1;
+      height: 100%;
+      border-right: 2px solid #fff;
+      transition: background-color 0.3s;
+    }
+    /* Leaderboard Entry Styling */
+    .leaderboard-entry {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 12px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin: 5px 0;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-align: center;
+      width: 100%;
+    }
+    .leaderboard-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+    }
+    .leaderboard-entry span {
+      font-size: 14px;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+    /* Problem Display */
+    #problem {
+      font-size: 24px;
+      font-weight: bold;
+      color: #222;
+      margin: 20px 0;
+      text-align: center;
+    }
+    /* Message & Score */
+    #message,
+    #score,
+    /* Game Area */
+    #gameArea {
+      text-align: center;
+      margin-top: 15px;
+    }
+    #gameArea input {
+      font-size: 18px;
+      padding: 8px;
+      width: 220px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    /* Responsive Design */
+    @media (max-width: 850px) {
+      .container {
         flex-direction: column;
         align-items: center;
-    }
-
-    #leaderboard {
+      }
+      #leaderboard {
         width: 100%;
-    }
-
-    #settings {
+      }
+      #settings {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    #quizContainer {
+      }
+      #quizContainer {
         width: 100%;
         max-width: 100%;
+      }
+      #choicesContainer {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      #choicesContainer button {
+        width: 100%;
+        white-space: normal;
+      }
     }
-    #choicesContainer {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    #choicesContainer button {
-      width: 100%;
-      white-space: normal;
-    }
-}
   </style>
 </head>
 
@@ -251,7 +214,6 @@ button:hover {
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-HP66XV8DT4');
 </script>
 
@@ -279,6 +241,8 @@ button:hover {
             <option value="addition">Addition</option>
             <option value="subtraction">Subtraction</option>
             <option value="division">Division (Remainder)</option>
+            <option value="power">Power (Square)</option>
+            <option value="root">Root (Square Root)</option>
           </select>
         </div>
 
@@ -334,18 +298,21 @@ button:hover {
       <p id="score"></p>
 
       <!-- Reset Button -->
+      <div id="xpContainer"></div>
       <div class="button-container">
         <button id="resetButton" style="display: none;" onclick="resetGame()">Reset</button>
       </div>
     </div>
   </div>
-</body>
-  
+
   <!-- Load the external script that handles header and footer loading -->
   <script defer src="script.js"></script>
-  
+  <script src="xpManager.js"></script>
+
   <!-- Quiz JavaScript -->
   <script>
+    xpManager.loadXP();
+    xpManager.renderXP();
     let num1, num2, correctAnswer, operation;
     let currentQuestion = 0;
     let correctCount = 0;
@@ -353,15 +320,34 @@ button:hover {
     let timerInterval;
     let elapsedTime = 0;
     let leaderboard = [];
-    let acceptingAnswers = true; // flag to prevent multiple submissions
+    let acceptingAnswers = true;
+
+    function loadData() {
+      const storedLeaderboard = localStorage.getItem('leaderboard');
+      if (storedLeaderboard) leaderboard = JSON.parse(storedLeaderboard);
+    }
+
+    function saveData() {
+      localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    }
 
     function validateRange(input, min, max) {
       if (input.value < min) input.value = min;
       if (input.value > max) input.value = max;
     }
 
+    function loadLeaderboard() {
+      const stored = localStorage.getItem('leaderboard');
+      leaderboard = stored ? JSON.parse(stored) : [];
+    }
+
+    function saveLeaderboard() {
+      localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    }
+
     function resetGame() {
       clearInterval(timerInterval);
+      xpManager.renderXP();
       elapsedTime = 0;
       document.getElementById("timer").textContent = "Time: 0 seconds";
       document.getElementById("timer").style.display = "none";
@@ -436,15 +422,13 @@ button:hover {
             num2 = Math.floor(Math.random() * (range + 1));
           }
         }
-
         while (num1 < num2) {
           if (includeNegatives) {
-              num1 = Math.floor(Math.random() * (range * 2 + 1)) - range;
+            num1 = Math.floor(Math.random() * (range * 2 + 1)) - range;
           } else {
-              num1 = Math.floor(Math.random() * (range + 1));
+            num1 = Math.floor(Math.random() * (range + 1));
           }
         }
-
         let quotient = Math.floor(num1 / num2);
         let remainder = num1 % num2;
         correctAnswer = { quotient: quotient, remainder: remainder };
@@ -453,6 +437,21 @@ button:hover {
         document.getElementById("divisionAnswerContainer").style.display = "block";
         document.getElementById("quotientAnswer").value = "";
         document.getElementById("remainderAnswer").value = "";
+      } else if (operation === "power") {
+        let base = Math.floor(Math.random() * (range + 1));
+        correctAnswer = Math.pow(base, 2);
+        document.getElementById("problem").textContent = `What is ${base}²?`;
+        document.getElementById("singleAnswerContainer").style.display = "block";
+        document.getElementById("divisionAnswerContainer").style.display = "none";
+        document.getElementById("answer").value = "";
+      } else if (operation === "root") {
+        let root = Math.floor(Math.random() * (range + 1));
+        let radicand = root * root;
+        correctAnswer = root;
+        document.getElementById("problem").textContent = `What is √${radicand}?`;
+        document.getElementById("singleAnswerContainer").style.display = "block";
+        document.getElementById("divisionAnswerContainer").style.display = "none";
+        document.getElementById("answer").value = "";
       } else {
         switch (operation) {
           case "multiplication":
@@ -480,45 +479,43 @@ button:hover {
       if (!acceptingAnswers) return;
       acceptingAnswers = false;
 
+      let wasCorrect = false;
       if (operation === "division") {
         let userQuotient = parseInt(document.getElementById("quotientAnswer").value);
         let userRemainder = parseInt(document.getElementById("remainderAnswer").value);
-        
         if (userQuotient === correctAnswer.quotient && userRemainder === correctAnswer.remainder) {
-          document.getElementById("message").textContent = "Correct!";
-          progressBar[currentQuestion].style.backgroundColor = "green";
-          correctCount++;
-        } else {
-          document.getElementById("message").textContent = "Try again!";
-          progressBar[currentQuestion].style.backgroundColor = "red";
+          wasCorrect = true;
         }
-        
-        // Re-enable input fields for the next question
         document.getElementById("quotientAnswer").disabled = false;
         document.getElementById("remainderAnswer").disabled = false;
       } else {
         let userAnswer = document.getElementById("answer").value.trim();
-        
         if (userAnswer === correctAnswer.toString()) {
-          document.getElementById("message").textContent = "Correct!";
-          progressBar[currentQuestion].style.backgroundColor = "green";
-          correctCount++;
-        } else {
-          document.getElementById("message").textContent = "Try again!";
-          progressBar[currentQuestion].style.backgroundColor = "red";
+          wasCorrect = true;
         }
-        
-        // Re-enable input field for the next question
         document.getElementById("answer").disabled = false;
       }
 
-      currentQuestion++;
+      if (wasCorrect) {
+        document.getElementById("message").textContent = "Correct!";
+        progressBar[currentQuestion].style.backgroundColor = "green";
+        correctCount++;
+        xpManager.addXP();
+        saveData();
+      } else {
+        document.getElementById("message").textContent = "Try again!";
+        progressBar[currentQuestion].style.backgroundColor = "red";
+      }
 
-      // Delay before generating next problem
-      setTimeout(() => {
-        generateProblem();
-        document.getElementById("answer").focus(); // Auto-focus on the input box
-      }, 0);
+      currentQuestion++;
+    setTimeout(() => {
+      generateProblem();
+      if (operation === "division") {
+        document.getElementById("quotientAnswer").focus();
+      } else {
+        document.getElementById("answer").focus();
+      }
+    }, 0);
     }
 
     function handleKeyPress(event) {
@@ -529,42 +526,39 @@ button:hover {
     }
 
     function addLeaderboardEntry(score, totalQuestions, operation, time) {
-      leaderboard.push({
-        score: score,
-        total: totalQuestions,
-        operation: operation,
-        time: time,
-      });
+      leaderboard.push({ score, total: totalQuestions, operation, time });
+      saveLeaderboard();
     }
 
     function updateLeaderboard() {
-        let leaderboardList = document.getElementById("leaderboardList");
-        leaderboardList.innerHTML = ""; // Clear existing entries
-
-        leaderboard.forEach((entry, index) => {
-            let li = document.createElement("li");
-            li.className = "leaderboard-entry"; // Add a class for styling
-
-            // Two-line format with uniform styling
-            li.innerHTML = `
-                <div class="leaderboard-row">
-                    <span class="attempt">Attempt ${index + 1}: ${entry.operation}</span>
-                    <span class="score">${entry.score}%</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span class="details">${entry.total} questions</span>
-                    <span class="time">${entry.time} sec</span>
-                </div>
-            `;
-
-            leaderboardList.appendChild(li);
-        });
+      let leaderboardList = document.getElementById("leaderboardList");
+      leaderboardList.innerHTML = "";
+      leaderboard.forEach((entry, index) => {
+        let li = document.createElement("li");
+        li.className = "leaderboard-entry";
+        li.innerHTML = `
+          <div class="leaderboard-row">
+            <span class="attempt">Attempt ${index + 1}: ${entry.operation}</span>
+            <span class="score">${entry.score}%</span>
+          </div>
+          <div class="leaderboard-row">
+            <span class="details">${entry.total} questions</span>
+            <span class="time">${entry.time} sec</span>
+          </div>
+        `;
+        leaderboardList.appendChild(li);
+      });
     }
 
+    // initialize from storage and UI
+    xpManager.loadXP();
+    xpManager.renderXP();
+    loadLeaderboard();
+    updateLeaderboard();
     resetGame();
   </script>
 
-    <!-- The shared footer is loaded dynamically -->
-    <div id="footer"></div>
+  <!-- The shared footer is loaded dynamically -->
+  <div id="footer"></div>
 </body>
 </html>

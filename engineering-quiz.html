@@ -16,11 +16,9 @@
 
     /* Container layout */
     .container {
-      display: flex;
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      gap: 20px;
+        display: flex;
+        max-width: 1200px;
+        gap: 20px;
     }
 
     /* Leaderboard Styling */
@@ -263,8 +261,8 @@
       <div id="settings">
         <!-- Grade Selection -->
         <div>
-          <label for="gradeSelection">Select Grade:</label>
-          <select id="gradeSelection" onchange="resetGame()">
+          <label for="operation">Select Grade:</label>
+          <select id="operation" onchange="resetGame()">
             <option value="K">Kindergarten</option>
             <option value="1">Grade 1</option>
             <option value="2">Grade 2</option>
@@ -311,6 +309,7 @@
       <p id="score"></p>
 
       <!-- Reset Button -->
+      <div id="xpContainer"></div>
       <div class="button-container">
         <button id="resetButton" style="display: none;" onclick="resetGame()">Reset</button>
       </div>
@@ -319,9 +318,12 @@
 
   <!-- Load the external script that handles header and footer loading -->
   <script defer src="script.js"></script>
+  <script src="xpManager.js"></script>
 
   <!-- Quiz JavaScript -->
   <script>
+    xpManager.loadXP();
+    xpManager.renderXP();
     // Global variables
     let engineeringList = [];      // full engineering list loaded from engineering.json
     let quizWords = [];      // words selected for the current quiz
@@ -340,8 +342,18 @@
       if (input.value > max) input.value = max;
     }
 
+    function loadLeaderboard() {
+      const stored = localStorage.getItem('leaderboard');
+      leaderboard = stored ? JSON.parse(stored) : [];
+    }
+
+    function saveLeaderboard() {
+      localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    }
+
     function resetGame() {
       clearInterval(timerInterval);
+      xpManager.renderXP();
       elapsedTime = 0;
       document.getElementById("timer").textContent = "Time: 0 seconds";
       document.getElementById("timer").style.display = "none";
@@ -382,7 +394,7 @@
       }, 1000);
 
       // Get the selected grade from the dropdown BEFORE fetching data
-      const selectedGrade = document.getElementById("gradeSelection").value;
+      const selectedGrade = document.getElementById("operation").value;
 
       // Load engineering from external JSON
       fetch('engineering.json')
@@ -466,6 +478,7 @@
         document.getElementById("message").textContent = "Correct!";
         progressBar[currentQuestion].style.backgroundColor = "green";
         correctCount++;
+        xpManager.addXP();
       } else {
         document.getElementById("message").textContent = "Incorrect!";
         progressBar[currentQuestion].style.backgroundColor = "red";
@@ -483,7 +496,7 @@
       document.getElementById("score").textContent = `Your Score: ${scorePercent}%`;
       document.getElementById("gameArea").style.display = "none";
       document.getElementById("resetButton").style.display = "inline-block";
-      addLeaderboardEntry(scorePercent, totalQuestions, document.getElementById("gradeSelection").value, elapsedTime);
+      addLeaderboardEntry(scorePercent, totalQuestions, document.getElementById("operation").value, elapsedTime);
       updateLeaderboard();
     }
 
@@ -495,13 +508,9 @@
       }
     }
 
-    function addLeaderboardEntry(score, totalQuestions, gradeSelection, time) {
-      leaderboard.push({
-        score: score,
-        total: totalQuestions,
-        gradeSelection: gradeSelection,
-        time: time,
-      });
+    function addLeaderboardEntry(score, totalQuestions, operation, time) {
+      leaderboard.push({ score, total: totalQuestions, operation, time });
+      saveLeaderboard();
     }
 
     function updateLeaderboard() {
@@ -512,7 +521,7 @@
         li.className = "leaderboard-entry";
         li.innerHTML = `
           <div class="leaderboard-row">
-            <span class="attempt">Attempt ${index + 1}: Grade ${entry.gradeSelection}</span>
+            <span class="attempt">Attempt ${index + 1}:  ${entry.operation}</span>
             <span class="score">${entry.score}%</span>
           </div>
           <div class="leaderboard-row">
@@ -525,6 +534,10 @@
     }
 
     // Initialize the game on page load
+    xpManager.loadXP();
+    xpManager.renderXP();
+    loadLeaderboard();
+    updateLeaderboard();
     resetGame();
   </script>
 
